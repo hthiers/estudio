@@ -21,8 +21,8 @@ $factory->defineAs(Estudio\Entities\User::class, 'user', function (Faker\Generat
 $factory->defineAs(Estudio\Entities\User::class, 'admin', function (Faker\Generator $faker) {
     return [
         'username' => 'admin',
-        'nombre' => $faker->firstName,
-        'apellido' => $faker->lastName,
+        'nombre' => 'Federico',
+        'apellido' => 'Antonucci',
         'email' => $faker->safeEmail,
         'password' => bcrypt('admin'),
         'remember_token' => str_random(10),

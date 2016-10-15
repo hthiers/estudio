@@ -48,9 +48,9 @@
                     <li><a href="{{ url('clientes') }}"><i class="fa fa-desktop"></i> Clientes </a></li>
                     <li><a><i class="fa fa-legal"></i> Expedientes <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="#">Nuevo</a></li>
-                            <li><a href="#">Ver lista</a></li>
-                            <li><a href="#">Buscar</a></li>
+                            <li><a href="{{ url('/expedientes') }}">Nuevo</a></li>
+                            <li><a href="{{ url('/expedientes') }}">Ver lista</a></li>
+                            <li><a href="{{ url('/expedientes') }}">Buscar</a></li>
                         </ul>
                     </li>
                 </ul>

@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         $this->call(EstadoCivilSeeder::class);
         $this->call(EstudioSeeder::class);
-        $this->call(ClienteSeeder::class);
+      //  $this->call(ClienteSeeder::class);
         $this->call(CitaSeeder::class);
         $this->call(JurisdiccionSeeder::class);
         $this->call(RamaSeeder::class);

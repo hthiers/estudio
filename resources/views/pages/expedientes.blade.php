@@ -2,7 +2,7 @@
 
 @section('estilos')
 
-    <link rel="stylesheet" type="text/css" href="{{ url('css/datatables.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url('css/datatables.css') }}"/>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/alertifyjs/1.8.0/css/alertify.min.css"/>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/alertifyjs/1.8.0/css/themes/bootstrap.min.css"/>
 
@@ -35,43 +35,53 @@
                 <div class="alert alert-danger alert-dismissible fade in" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
                     </button>
-                    <strong>{{ $errors->first() }} </strong>No se ha agregado el cliente.
+                    <strong>{{ $errors->first() }} </strong>No se ha agregado el expediente.
                 </div>
             @endif
 			
             <div class="col-md-12 col-sm-12 col-xs-12 escondido">
 
                         
-                            <table id="tabla-clientes" class="table table-striped dt-responsive nowrap" cellspacing="0" width="100%">
+                            <table id="tabla-expedientes" class="table table-striped dt-responsive nowrap" cellspacing="0" width="100%">
                                 <thead>
                                 <tr>
-                                    <th>Nombre</th>
-                                    <th>Celular</th>
-                                    <th>Telefono</th>
-                                    <th>Mail</th>
-                                    <th>DNI</th>
-                                    <th>Domicilio</th>
-                                    <th>Estado Civil</th>
+                                    <th>Titulo</th>
+                                    <th>Fecha</th>
+                                    <th>Jurisdiccion</th>
+                                    <th>Rama</th>
+                                    <th>Clientes</th>
+                                    <th>Comentarios</th>
                                     <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @forelse($clientes as $cliente)
-                                    <tr id="{{ $cliente->id }}">
+                                @forelse($expedientes as $expediente)
+                                    <tr id="{{ $expediente->id }}">
                                         <td class=" ">
-                                            <strong>{{ $cliente->apellido.", ".$cliente->nombre }}</strong>
+                                            <strong>{{ $expediente->titulo }}</strong>
                                         </td>
-                                        <td class=" ">{{ $cliente->celular }}</td>
-                                        <td class=" ">{{ $cliente->telefono }}</td>
-                                        <td class=" ">{{ $cliente->email }}</td>
-                                        <td class=" ">{{ $cliente->dni }}</td>
-                                        <td class=" ">{{ $cliente->domicilio }}</td>
-                                        <td class=" ">{{ $cliente->estadoCivil? $cliente->estadoCivil->estado : "---" }}</td>
+                                        <td class=" ">{{ $expediente->fecha }}</td>
+                                        <td class=" ">{{ $expediente->jurisdiccion->jurisdiccion }}</td>
+                                        <td class=" ">{{ $expediente->rama->rama }}</td>
+                                        <td class=" ">
+
+                                            @forelse($expediente->clientes as $cliente)
+                                                {{ $cliente->apellido }}
+                                            @empty
+                                            @endforelse
+
+                                        </td>
+                                        <td class=" ">
+                                            @forelse($expediente->comentarios as $comentario)
+                                                {{ $comentario->comentario }}
+                                            @empty
+                                            @endforelse
+                                        </td>
                                         <td class="">
                                             <button type="button" class="btn btn-sm btn-warning"><i class="fa fa-pencil fa-fw"></i> Ver Expedientes</button>
-                                            <button type="button" data-id="{{ $cliente->id }}" class="btn btn-sm btn-primary btn-editar" 
+                                            <button type="button" data-id="{{ $expediente->id }}" class="btn btn-sm btn-primary btn-editar"
                                             	><i class="fa fa-pencil fa-fw"></i> Editar</button>
-                                            <button type="button" data-id="{{ $cliente->id }}" class="btn btn-sm btn-danger btn-borrar"><i class="fa fa-trash fa-fw"></i> Borrar</button>
+                                            <button type="button" data-id="{{ $expediente->id }}" class="btn btn-sm btn-danger btn-borrar"><i class="fa fa-trash fa-fw"></i> Borrar</button>
                                         </td>
                                     </tr>
                                 @empty
@@ -83,8 +93,8 @@
         </div>
     </div>
 
-    @include('popups.cliente-nuevo')
-    @include('popups.confirma-borrar')
+   {{-- @include('popups.cliente-nuevo')
+    @include('popups.confirma-borrar') --}}
     
 
 

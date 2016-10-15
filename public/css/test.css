@@ -1,0 +1,93 @@
+body {
+    font-family: Lato, Verdana, sans-serif;
+}
+
+.profile {
+    display: flex;
+}
+
+hr {
+    margin: 5px 0;
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.sidebar-footer a {
+    width: 50%;
+}
+
+.centrar-texto {
+    text-align: center;
+}
+
+/* ESTILOS PANTALLA LOGIN */
+.animate.form {
+    margin-top:2em;
+}
+.help-block {
+    margin-top: -15px;
+}
+/** Validaciones form nuevo cliente*/
+.help-block {
+    margin-bottom: 0;
+}
+
+/* Botonera de tabla */
+.botonera {
+    padding: 0;
+}
+.btn {
+    margin-bottom: 0 !important;
+}
+
+.modal.fade {
+    z-index: 9999999;
+}
+
+.barra-lateral {
+    height: 100%;
+}
+
+.right_col {
+    padding-top: 4.5em !important;
+}
+
+div.btn-derecha {
+    text-align: right;
+}
+
+td ul li {
+    padding: 0;
+}
+
+/*input.buscador {*/
+    /*!*padding-right: 0;*!*/
+    /*!*padding-left: 0;*!*/
+
+/*}*/
+
+/*div.input-caja {*/
+    /*width: 100%;*/
+    /*box-sizing: border-box*/
+/*}*/
+
+.escondido {
+    display:  none;
+}
+
+/* Header de los dialogos de alertify y bootstrap */
+.alertify .ajs-header, div.modal-header {
+    background: #425567 !important;
+    color: #fff !important;
+}
+
+div.modal-header .close span {
+    color: #fff !important;
+}
+
+/* Para que el menu lateral no tape los popups y dialogos*/
+.col-md-3.left_col {
+    z-index:  1000 !important;
+}

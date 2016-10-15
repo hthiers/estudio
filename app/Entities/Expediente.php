@@ -14,7 +14,7 @@ class Expediente extends Entity
 
     public function clientes()
     {
-        return $this->belongsToMany(Cliente::class);
+        return $this->belongsToMany(Cliente::class)->withTimestamps();
     }
 
     public function jurisdiccion()
