@@ -6,7 +6,7 @@
  * Time: 12:04 PM
  */
 
-$factory->define(Estudio\Entities\Permiso::class, function (Faker\Generator $faker) {
+$factory->define(Permiso::class, function (Faker\Generator $faker) {
     return [
         'permiso' => $faker->word
     ];

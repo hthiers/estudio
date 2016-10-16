@@ -6,13 +6,13 @@
  * Time: 12:04 PM
  */
 
-$factory->defineAs(Estudio\Entities\Rol::class, 'admin', function (Faker\Generator $faker) {
+$factory->defineAs(Rol::class, 'admin', function (Faker\Generator $faker) {
     return [
         'rol' => 'admin'
     ];
 });
 
-$factory->defineAs(Estudio\Entities\Rol::class, 'user', function (Faker\Generator $faker) {
+$factory->defineAs(Rol::class, 'user', function (Faker\Generator $faker) {
     return [
         'rol' => 'user'
     ];

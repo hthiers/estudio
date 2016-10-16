@@ -11,6 +11,6 @@ class CitaSeeder extends Seeder
      */
     public function run()
     {
-        factory(Estudio\Entities\Cita::class, 20)->create();
+        factory(Cita::class, 20)->create();
     }
 }

@@ -6,15 +6,18 @@
  * Time: 09:51 PM
  */
 
-$factory->define(Estudio\Entities\Cita::class, function (Faker\Generator $faker) {
+use Carbon\Carbon;
 
-    $users_ids = Estudio\Entities\User::where('id' ,'>' ,0)->pluck('id')->toArray();
-    $clientes_ids = Estudio\Entities\Cliente::where('id' ,'>' ,0)->pluck('id')->toArray();
+$factory->define(Cita::class, function (Faker\Generator $faker) {
 
+    $users_ids = User::where('id' ,'>' ,0)->pluck('id')->toArray();
+    $clientes_ids = Cliente::where('id' ,'>' ,0)->pluck('id')->toArray();
+    $fechaComienzo = Carbon::createFromTimeStamp($faker->dateTimeBetween('-30 days', '+30 days')->getTimestamp());
+    $fechaFin = Carbon::createFromFormat('Y-m-d H:i:s', $fechaComienzo)->addHours(12);
     return [
-        'fecha' => $faker->dateTimeBetween('2016-1-1','2016-12-28'),
-        'hora' => $faker->time(),
-        'observacion' => $faker->sentence(11),
+        'fecha_comienzo' => $fechaComienzo,
+        'fecha_fin' => $faker->dateTimeBetween($fechaComienzo, $fechaFin),
+        'titulo' => $faker->sentence(6),
         'user_id' => $faker->randomElement($users_ids),
         'cliente_id' => $faker->randomElement($clientes_ids),
     ];

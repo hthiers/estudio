@@ -11,7 +11,7 @@ class EstudioSeeder extends Seeder
      */
     public function run()
     {
-        factory(Estudio\Entities\Estudio::class)->create(['estudio' => 'San Andres']);
-        factory(Estudio\Entities\Estudio::class)->create(['estudio' => 'Loma Hermosa']);
+        factory(Estudio::class)->create(['estudio' => 'San Andres']);
+        factory(Estudio::class)->create(['estudio' => 'Loma Hermosa']);
     }
 }

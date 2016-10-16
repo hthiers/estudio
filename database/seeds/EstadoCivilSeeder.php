@@ -11,8 +11,8 @@ class EstadoCivilSeeder extends Seeder
      */
     public function run()
     {
-        factory(Estudio\Entities\EstadoCivil::class, 'soltero')->create();
-        factory(Estudio\Entities\EstadoCivil::class, 'casado')->create();
-        factory(Estudio\Entities\EstadoCivil::class, 'divorciado')->create();
+        factory(EstadoCivil::class, 'soltero')->create();
+        factory(EstadoCivil::class, 'casado')->create();
+        factory(EstadoCivil::class, 'divorciado')->create();
     }
 }

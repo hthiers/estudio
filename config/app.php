@@ -225,6 +225,20 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        // Entities
+        'Cita' => Estudio\Entities\Cita::class,
+        'Cliente' => Estudio\Entities\Cliente::class,
+        'Comentario' => Estudio\Entities\Comentario::class,
+        'Entity' => Estudio\Entities\Entity::class,
+        'EstadoCivil' => Estudio\Entities\EstadoCivil::class,
+        'Estudio' => Estudio\Entities\Estudio::class,
+        'Expediente' => Estudio\Entities\Expediente::class,
+        'Jurisdiccion' => Estudio\Entities\Jurisdiccion::class,
+        'Permiso' => Estudio\Entities\Permiso::class,
+        'Rama' => Estudio\Entities\Rama::class,
+        'Rol' => Estudio\Entities\Rol::class,
+        'User' => Estudio\Entities\User::class,
+
 
     ],
 

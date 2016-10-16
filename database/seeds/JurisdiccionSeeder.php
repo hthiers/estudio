@@ -11,8 +11,8 @@ class JurisdiccionSeeder extends Seeder
      */
     public function run()
     {
-        factory(Estudio\Entities\Jurisdiccion::class)->create(['jurisdiccion' => 'San Martin']);
-        factory(Estudio\Entities\Jurisdiccion::class)->create(['jurisdiccion' => 'San Isidro']);
-        factory(Estudio\Entities\Jurisdiccion::class)->create(['jurisdiccion' => 'C.A.B.A.']);
+        factory(Jurisdiccion::class)->create(['jurisdiccion' => 'San Martin']);
+        factory(Jurisdiccion::class)->create(['jurisdiccion' => 'San Isidro']);
+        factory(Jurisdiccion::class)->create(['jurisdiccion' => 'C.A.B.A.']);
     }
 }

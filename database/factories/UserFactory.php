@@ -6,7 +6,7 @@
  * Time: 10:13 PM
  */
 
-$factory->defineAs(Estudio\Entities\User::class, 'user', function (Faker\Generator $faker) {
+$factory->defineAs(User::class, 'user', function (Faker\Generator $faker) {
     return [
         'username' => $faker->userName,
         'nombre' => $faker->firstName,
@@ -14,11 +14,11 @@ $factory->defineAs(Estudio\Entities\User::class, 'user', function (Faker\Generat
         'email' => $faker->safeEmail,
         'password' => bcrypt(str_random(10)),
         'remember_token' => str_random(10),
-        'rol_id' => Estudio\Entities\Rol::where('rol' ,'user')->first()->id
+        'rol_id' => Rol::where('rol' ,'user')->first()->id
     ];
 });
 
-$factory->defineAs(Estudio\Entities\User::class, 'admin', function (Faker\Generator $faker) {
+$factory->defineAs(User::class, 'admin', function (Faker\Generator $faker) {
     return [
         'username' => 'admin',
         'nombre' => 'Federico',
@@ -26,6 +26,6 @@ $factory->defineAs(Estudio\Entities\User::class, 'admin', function (Faker\Genera
         'email' => $faker->safeEmail,
         'password' => bcrypt('admin'),
         'remember_token' => str_random(10),
-        'rol_id' => Estudio\Entities\Rol::where('rol' ,'admin')->first()->id
+        'rol_id' => Rol::where('rol' ,'admin')->first()->id
     ];
 });

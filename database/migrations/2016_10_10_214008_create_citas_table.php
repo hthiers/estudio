@@ -16,9 +16,9 @@ class CreateCitasTable extends Migration
         echo "Creando tabla citas...\n";
         Schema::create('citas', function (Blueprint $tabla){
             $tabla->increments('id');
-            $tabla->date('fecha');
-            $tabla->time('hora');
-            $tabla->text('observacion');
+            $tabla->string('titulo', 150);
+            $tabla->timestamp('fecha_comienzo');
+            $tabla->timestamp('fecha_fin')->nullable();
             $tabla->integer('user_id')->unsigned()->nullable();
             $tabla->foreign('user_id')->references('id')->on('users')->onDelete('set null');
             $tabla->bigInteger('cliente_id')->unsigned()->nullable();

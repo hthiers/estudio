@@ -11,7 +11,7 @@ class RolSeeder extends Seeder
      */
     public function run()
     {
-        factory(Estudio\Entities\Rol::class, 'admin')->create();
-        factory(Estudio\Entities\Rol::class, 'user')->create();
+        factory(Rol::class, 'admin')->create();
+        factory(Rol::class, 'user')->create();
     }
 }

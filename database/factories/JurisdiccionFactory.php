@@ -6,7 +6,7 @@
  * Time: 12:32 AM
  */
 
-$factory->define(Estudio\Entities\Jurisdiccion::class, function (Faker\Generator $faker) {
+$factory->define(Jurisdiccion::class, function (Faker\Generator $faker) {
     return [
         'jurisdiccion' => $faker->city
     ];

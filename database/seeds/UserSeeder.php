@@ -11,6 +11,6 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        factory(Estudio\Entities\User::class, 'user', 10)->create();
+        factory(User::class, 'user', 10)->create();
     }
 }

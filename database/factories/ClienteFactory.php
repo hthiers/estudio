@@ -6,7 +6,7 @@
  * Time: 09:41 PM
  */
 
-$factory->define(Estudio\Entities\Cliente::class, function(Faker\Generator $faker){
+$factory->define(Cliente::class, function(Faker\Generator $faker){
     return [
         'nombre' => $faker->firstName,
         'apellido' => $faker->lastName,

@@ -11,6 +11,6 @@ class PermisoSeeder extends Seeder
      */
     public function run()
     {
-        factory(Estudio\Entities\Permiso::class, 5)->create();
+        factory(Permiso::class, 5)->create();
     }
 }

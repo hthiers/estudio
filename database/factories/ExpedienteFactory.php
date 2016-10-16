@@ -6,10 +6,10 @@
  * Time: 12:18 AM
  */
 
-$factory->define(Estudio\Entities\Expediente::class, function (Faker\Generator $faker) {
+$factory->define(Expediente::class, function (Faker\Generator $faker) {
 
-    $jurisdicciones_ids = Estudio\Entities\Jurisdiccion::where('id' ,'>' ,0)->pluck('id')->toArray();
-    $ramas_ids = Estudio\Entities\Rama::where('id' ,'>' ,0)->pluck('id')->toArray();
+    $jurisdicciones_ids = Jurisdiccion::where('id' ,'>' ,0)->pluck('id')->toArray();
+    $ramas_ids = Rama::where('id' ,'>' ,0)->pluck('id')->toArray();
 
     return [
         'titulo' => $faker->sentence(7),

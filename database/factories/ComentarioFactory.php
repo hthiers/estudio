@@ -6,10 +6,10 @@
  * Time: 12:09 AM
  */
 
-$factory->define(Estudio\Entities\Comentario::class, function(Faker\Generator $faker) {
+$factory->define(Comentario::class, function(Faker\Generator $faker) {
 
-    $users_ids = Estudio\Entities\User::where('id' ,'>' ,0)->pluck('id')->toArray();
-    $expedientes_ids = Estudio\Entities\Expediente::where('id' ,'>' ,0)->pluck('id')->toArray();
+    $users_ids = User::where('id' ,'>' ,0)->pluck('id')->toArray();
+    $expedientes_ids = Expediente::where('id' ,'>' ,0)->pluck('id')->toArray();
 
     return [
         'comentario' => $faker->sentence(16),

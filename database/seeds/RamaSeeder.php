@@ -11,13 +11,12 @@ class RamaSeeder extends Seeder
      */
     public function run()
     {
-        factory(Estudio\Entities\Rama::class)->create(['rama' => 'Laboral']);
-        factory(Estudio\Entities\Rama::class)->create(['rama' => 'Familia']);
-        factory(Estudio\Entities\Rama::class)->create(['rama' => 'Sucesion']);
-        factory(Estudio\Entities\Rama::class)->create(['rama' => 'Civil']);
-        factory(Estudio\Entities\Rama::class)->create(['rama' => 'Mediacion']);
-        factory(Estudio\Entities\Rama::class)->create(['rama' => 'Ejecucion']);
-        factory(Estudio\Entities\Rama::class)->create(['rama' => 'Previsional']);
-        factory(Estudio\Entities\Rama::class)->create(['rama' => 'Otros']);
+        factory(Rama::class)->create(['rama' => 'Laboral']);
+        factory(Rama::class)->create(['rama' => 'Sucesion']);
+        factory(Rama::class)->create(['rama' => 'Civil']);
+        factory(Rama::class)->create(['rama' => 'Mediacion']);
+        factory(Rama::class)->create(['rama' => 'Ejecucion']);
+        factory(Rama::class)->create(['rama' => 'Previsional']);
+        factory(Rama::class)->create(['rama' => 'Otros']);
     }
 }

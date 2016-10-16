@@ -4,7 +4,6 @@ namespace Estudio\Http\Controllers\Auth;
 
 use Estudio\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Estudio\Entities\User;
 
 class LoginController extends Controller
 {

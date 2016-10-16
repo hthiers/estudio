@@ -6,7 +6,7 @@
  * Time: 12:38 AM
  */
 
-$factory->define(Estudio\Entities\Rama::class, function (Faker\Generator $faker) {
+$factory->define(Rama::class, function (Faker\Generator $faker) {
     return [
         'rama' => ucfirst($faker->word)
     ];

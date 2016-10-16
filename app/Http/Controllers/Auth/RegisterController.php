@@ -2,7 +2,6 @@
 
 namespace Estudio\Http\Controllers\Auth;
 
-use Estudio\User;
 use Validator;
 use Estudio\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
