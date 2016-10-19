@@ -2,8 +2,12 @@
 
 namespace Estudio\Entities;
 
+use Cviebrock\EloquentSluggable\Sluggable;
+
 class Cliente extends Entity
 {
+    use Sluggable;
+
     protected $table = "clientes";
     
     protected $dates = [
@@ -12,6 +16,7 @@ class Cliente extends Entity
         'deleted_at'
     ];
 
+    // Relaciones
     public function expedientes()
     {
         return $this->belongsToMany(Expediente::class)->withTimestamps();
@@ -31,4 +36,24 @@ class Cliente extends Entity
     {
         return $this->hasMany(Cita::class);
     }
+
+    /**
+     * Devuelve la configuracion del slug.
+     *
+     * @return array
+     */
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'fullname',
+                'unique' => true
+            ]
+        ];
+    }
+
+    public function getFullnameAttribute() {
+        return $this->nombre.' '.$this->apellido;
+    }
+
 }

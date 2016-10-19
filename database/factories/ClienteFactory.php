@@ -17,6 +17,6 @@ $factory->define(Cliente::class, function(Faker\Generator $faker){
         'email' => $faker->safeEmail,
         'domicilio' => $faker->streetAddress,
         'activo' => true,
-        'estado_civil_id' => $faker->numberBetween(1,3)
+        'estado_civil_id' => $faker->numberBetween(1,3),
     ];
 });

@@ -51,10 +51,15 @@ class ClientesController extends Controller
         return redirect('/clientes');
     }
     
-    public function get($id)
+    public function get($slug)
     {
-    	$cliente = Cliente::find($id);
-    	return $cliente;
+   	    $cliente = Cliente::where('slug', $slug)->first();
+    	return view('pages.cliente')->withCliente($cliente);
+    }
+
+    public function getAjax($id)
+    {
+        return Cliente::find($id);
     }
     
     public function delete(Request $request)

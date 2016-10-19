@@ -17,4 +17,10 @@ class EstudioController extends Controller
     {
         return view('pages.base');
     }
+
+    public function slug($slug)
+    {
+        $post = Post::where('slug','=', $slug)->firstOrFail();
+        return \View::make('post', compact('post'));
+    }
 }

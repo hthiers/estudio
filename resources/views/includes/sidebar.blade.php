@@ -1,7 +1,7 @@
 <div class="col-md-3 menu_fixed left_col barra-lateral">
     <div class="left_col scroll-view">
         <div class="navbar nav_title" style="border: 0;">
-            <span class="site_title"><img id="logo" src="img/logo.png" alt="..."><span>Lorem Estudio</span></span>
+            <span class="site_title"><img id="logo" src="{{ url('img/logo.png') }}" alt="..."><span>Lorem Estudio</span></span>
         </div>
 
         <div class="clearfix"></div>
@@ -9,7 +9,7 @@
         <!-- menu profile quick info -->
         <div class="profile">
             <div class="profile_pic">
-                <img src="img/saul.jpg" alt="..." class="img-circle profile_img">
+                <img src="{{ url('img/saul.jpg') }}" alt="..." class="img-circle profile_img">
             </div>
             <div class="profile_info">
                 <span>Bienvenido,</span>
@@ -20,12 +20,6 @@
         <!-- sidebar menu -->
         <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
 
-            <div class="menu_section">
-
-
-
-                </ul>
-            </div>
 
             <div class="menu_section">
                 {{--<h3>Men&uacute; Principal</h3>--}}

@@ -1,5 +1,5 @@
 body {
-    font-family: Lato, Verdana, sans-serif;
+
 }
 
 .profile {
@@ -90,4 +90,24 @@ div.modal-header .close span {
 /* Para que el menu lateral no tape los popups y dialogos*/
 .col-md-3.left_col {
     z-index:  1000 !important;
+}
+
+/* Cursor de manito */
+.cursor-pointer {
+    cursor: pointer
+}
+
+.btn-vermas-cliente {
+    font-weight: bold !important;
+}
+
+/* Fix para ocultar icono de la primer columna   *
+*        en la datatable de clientes             */
+table.dataTable thead .no-sort.sorting_asc:after {
+    content:"";
+}
+
+/*  Redondeo de input de busqueda*/
+.top_search .form-control {
+    border-radius: 25px;
 }

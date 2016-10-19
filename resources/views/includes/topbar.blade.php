@@ -15,7 +15,7 @@
                 @else
                 <li class="">
                     <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                        <img src="img/saul.jpg" alt="">{{ Auth::user()->username }}
+                        <img src="{{ url('img/saul.jpg') }}" alt="">{{ Auth::user()->username }}
                         <span class=" fa fa-angle-down"></span>
                     </a>
                     <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -74,7 +74,7 @@
                     <ul id="mensajes" class="dropdown-menu list-unstyled msg_list" role="menu">
                         <li>
                             <a>
-                                <span class="image"><img src="img/nacho.jpg" alt="Profile Image" /></span>
+                                <span class="image"><img src="{{ url('img/nacho.jpg') }}" alt="Profile Image" /></span>
                                 <span>
                           <span>Nacho Garcia</span>
                           <span class="time">hace 3 minutos</span>
@@ -86,7 +86,7 @@
                         </li>
                         <li>
                             <a>
-                                <span class="image"><img src="img/lionel.jpg" alt="Profile Image" /></span>
+                                <span class="image"><img src="{{ url('img/lionel.jpg') }}" alt="Profile Image" /></span>
                                 <span>
                           <span>Lionel Hutz</span>
                           <span class="time">hace 2 horas</span>
@@ -98,7 +98,7 @@
                         </li>
                         <li>
                             <a>
-                                <span class="image"><img src="img/chuck.jpg" alt="Profile Image" /></span>
+                                <span class="image"><img src="{{ url('img/chuck.jpg') }}" alt="Profile Image" /></span>
                                 <span>
                           <span>Charles McGill</span>
                           <span class="time">hace 3 días</span>

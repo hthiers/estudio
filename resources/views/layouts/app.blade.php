@@ -5,7 +5,7 @@
     @include('includes/head')
 
     {{-- CSS con pruebas, solo para desarrollo --}}
-    <link rel="stylesheet" href="css/test/test.css">
+    <link rel="stylesheet" href="{{ url('css/test.css') }}">
     @yield('estilos')
     @include('includes/top-scripts')
     
@@ -35,7 +35,7 @@
 {{-- Para pasar los token en cada request ajax --}}
 
 
-<script src="js/estudio.js"></script>
+<script src="{{ url('js/estudio.js') }}"></script>
 @yield('bottom-scripts')
 <script type="text/javascript">
 $.ajaxSetup({
