@@ -16,30 +16,22 @@
               <div class="title_left">
                 <h3>{!! Breadcrumbs::render('cliente', $cliente) !!}</h3>
               </div>
-              @foreach($cliente->expedientes as $expediente)
-                <p>{{ $expediente->titulo }}</p>
-              @endforeach
+
 
             </div>
-            
+
             <div class="clearfix"></div>
 
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>@langUpc('etiquetas.datos-personales')<small>Activity report</small></h2>
+                    <h2>@langUpc('etiquetas.datos-personales')</h2>
 
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
                     <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
-                      <div class="profile_img">
-                        <div id="crop-avatar">
-                          <!-- Current avatar -->
-                          <img class="img-responsive avatar-view" src="{{ url('images/picture.jpg') }}" alt="Avatar" title="Change the avatar">
-                        </div>
-                      </div>
 
                       <ul class="list-unstyled user_data">
                         <li><i class="fa fa-map-marker user-profile-icon"></i> {{ $cliente->domicilio }}
@@ -51,59 +43,17 @@
 
                         <li class="m-top-xs">
                           <i class="fa fa-external-link user-profile-icon"></i>
-                          <a href="http://www.kimlabs.com/profile/" target="_blank">www.kimlabs.com</a>
+                          <a href="http://www.kimlabs.com/profile/" target="_blank">{{ $cliente->celular }}</a>
                         </li>
                       </ul>
 
                       <a class="btn btn-success btn-sm"><i class="fa fa-edit m-right-xs"></i> Modificar datos</a>
                       <br />
 
-                      <!-- start skills -->
-                      <h4>Skills</h4>
-                      <ul class="list-unstyled user_data">
-                        <li>
-                          <p>Web Applications</p>
-                          <div class="progress progress_sm">
-                            <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>
-                          </div>
-                        </li>
-                        <li>
-                          <p>Website Design</p>
-                          <div class="progress progress_sm">
-                            <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="70"></div>
-                          </div>
-                        </li>
-                        <li>
-                          <p>Automation & Testing</p>
-                          <div class="progress progress_sm">
-                            <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="30"></div>
-                          </div>
-                        </li>
-                        <li>
-                          <p>UI / UX</p>
-                          <div class="progress progress_sm">
-                            <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>
-                          </div>
-                        </li>
-                      </ul>
-                      <!-- end of skills -->
+
 
                     </div>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-
-                      <div class="profile_title">
-                          <h2>Expedientes</h2>
-                        </div>
-                        <div class="col-md-6">
-                          <div id="reportrange" class="pull-right" style="margin-top: 5px; background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #E6E9ED">
-                            <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
-                            <span>December 30, 2014 - January 28, 2015</span> <b class="caret"></b>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- start of user-activity-graph -->
-                      <div id="graph_bar" style="width:100%; height:280px;"></div>
-                      <!-- end of user-activity-graph -->
 
                       <div class="" role="tabpanel" data-example-id="togglable-tabs">
                         <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
@@ -119,75 +69,33 @@
 
                             <!-- start recent activity -->
                             <ul class="messages">
-                              <li>
-                                <img src="images/img.jpg" class="avatar" alt="Avatar">
-                                <div class="message_date">
-                                  <h3 class="date text-info">24</h3>
-                                  <p class="month">May</p>
-                                </div>
-                                <div class="message_wrapper">
-                                  <h4 class="heading"></h4>
-                                  <blockquote class="message">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth.</blockquote>
-                                  <br />
-                                  <p class="url">
-                                    <span class="fs1 text-info" aria-hidden="true" data-icon=""></span>
-                                    <a href="#"><i class="fa fa-paperclip"></i> User Acceptance Test.doc </a>
-                                  </p>
-                                </div>
-                              </li>
-                              <li>
-                                <img src="images/img.jpg" class="avatar" alt="Avatar">
-                                <div class="message_date">
-                                  <h3 class="date text-error">21</h3>
-                                  <p class="month">May</p>
-                                </div>
-                                <div class="message_wrapper">
-                                  <h4 class="heading">Brian Michaels</h4>
-                                  <blockquote class="message">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth.</blockquote>
-                                  <br />
-                                  <p class="url">
-                                    <span class="fs1" aria-hidden="true" data-icon=""></span>
-                                    <a href="#" data-original-title="">Download</a>
-                                  </p>
-                                </div>
-                              </li>
-                              <li>
-                                <img src="images/img.jpg" class="avatar" alt="Avatar">
-                                <div class="message_date">
-                                  <h3 class="date text-info">24</h3>
-                                  <p class="month">May</p>
-                                </div>
-                                <div class="message_wrapper">
-                                  <h4 class="heading">Desmond Davison</h4>
-                                  <blockquote class="message">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth.</blockquote>
-                                  <br />
-                                  <p class="url">
-                                    <span class="fs1 text-info" aria-hidden="true" data-icon=""></span>
-                                    <a href="#"><i class="fa fa-paperclip"></i> User Acceptance Test.doc </a>
-                                  </p>
-                                </div>
-                              </li>
-                              <li>
-                                <img src="images/img.jpg" class="avatar" alt="Avatar">
-                                <div class="message_date">
-                                  <h3 class="date text-error">21</h3>
-                                  <p class="month">May</p>
-                                </div>
-                                <div class="message_wrapper">
-                                  <h4 class="heading">Brian Michaels</h4>
-                                  <blockquote class="message">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth.</blockquote>
-                                  <br />
-                                  <p class="url">
-                                    <span class="fs1" aria-hidden="true" data-icon=""></span>
-                                    <a href="#" data-original-title="">Download</a>
-                                  </p>
-                                </div>
-                              </li>
+                              @foreach($cliente->expedientes as $expediente)
 
+                              <li>
+                                <div class="message_date">
+                                  <h3 class="date text-info">24</h3>
+                                  <p class="month">May</p>
+                                </div>
+                                <div class="message_wrapper">
+                                  <h4 class="heading">{{ $expediente->rama->rama }}</h4>
+                                  <blockquote class="message">{{ $expediente->titulo }}</blockquote>
+                                  <br />
+                                  <p class="url">
+                                    <span class="fs1 text-info" aria-hidden="true" data-icon=""></span>
+                                    <a href="#"><i class="fa fa-paperclip"></i> algun archivo.doc </a>
+                                  </p>
+                                </div>
+                              </li>
+                                @endforeach
                             </ul>
                             <!-- end recent activity -->
 
                           </div>
+                      <!-- start of user-activity-graph -->
+                      <div id="graph_bar" style="width:100%; height:280px;"></div>
+                      <!-- end of user-activity-graph -->
+
+
                           <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
 
                             <!-- start user projects -->
@@ -197,9 +105,7 @@
                                   <th>#</th>
                                   <th>Project Name</th>
                                   <th>Client Company</th>
-                                  <th class="hidden-phone">
-                                  gfdfgd
-                                  </th>
+                                  <th class="hidden-phone">Hours Spent</th>
                                   <th>Contribution</th>
                                 </tr>
                               </thead>

@@ -12,6 +12,8 @@ class Expediente extends Entity
     		'deleted_at'
     ];
 
+    protected $with = ['rama'];
+
     public function clientes()
     {
         return $this->belongsToMany(Cliente::class)->withTimestamps();
