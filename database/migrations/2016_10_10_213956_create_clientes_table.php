@@ -32,6 +32,7 @@ class CreateClientesTable extends Migration
                 ->onDelete('set null');
             $tabla->integer('estudio_id')->unsigned()->nullable()->index();
             $tabla->foreign('estudio_id')->references('id')->on('estudios')->onDelete('set null');
+            $tabla->string('slug')->index()->unique();
             $tabla->timestamps();
             $tabla->softDeletes();
         });

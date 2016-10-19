@@ -178,6 +178,12 @@ return [
         Estudio\Providers\EventServiceProvider::class,
         Estudio\Providers\RouteServiceProvider::class,
 
+        // Eloquent Sluggeable
+        Cviebrock\EloquentSluggable\ServiceProvider::class,
+
+        // Breadcrumbs
+        DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
+
     ],
 
     /*
@@ -238,6 +244,8 @@ return [
         'Rama' => Estudio\Entities\Rama::class,
         'Rol' => Estudio\Entities\Rol::class,
         'User' => Estudio\Entities\User::class,
+
+        'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
 
 
     ],

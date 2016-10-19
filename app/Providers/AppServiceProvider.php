@@ -3,6 +3,7 @@
 namespace Estudio\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Blade;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +14,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Blade::directive('langUpC', function($expression) {
+            return "<?php echo ucwords(trans($expression)); ?>";
+        });
+        Blade::directive('langUpc', function($expression) {
+            return "<?php echo ucfirst(trans($expression)); ?>";
+        });
+        Blade::directive('langUPC', function($expression) {
+            return "<?php echo strtoupper(trans($expression)); ?>";
+        });
     }
 
     /**

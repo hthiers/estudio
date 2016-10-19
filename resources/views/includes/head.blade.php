@@ -8,8 +8,8 @@
 
 <!-- Bootstrap core CSS -->
 
-<link rel="stylesheet" href="./css/app.css">
-<link rel="stylesheet" href="./css/font-awesome.css">
+<link rel="stylesheet" href="{{ url('css/app.css') }}">
+<link rel="stylesheet" href="{{ url('css/font-awesome.css') }}">
 
 <!--[if lt IE 9]>
 <script src="../assets/js/ie8-responsive-file-warning.js"></script>

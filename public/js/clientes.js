@@ -14,14 +14,14 @@ function fillFormCliente(data) {
 	  $('#celular').val(data.celular);
 	  $('#domicilio').val(data.domicilio);
 }
-
+// devuelve true si el objeto no es un boton
 function notButton($jqObj) {
 	return !$jqObj.is('.btn') && $jqObj.parents('.btn').length == 0;
 }
 
 var popups = {
 
-	confirmBorrarCliente : function(nombreCliente, id) {
+	confirmBorrarCliente : function(nombreCliente, id, fila) {
 		// <span class="glyphicons glyphicons-question-sign"></span>
 		
 		// La fila del cliente a borrar en la tabla
@@ -51,7 +51,7 @@ var popups = {
 						.success(
 						         function(data) {
 							if (data == 1) {
-								row.remove().draw(false)
+								fila.remove().draw(false);
 								alertify.success('Borrado ' + nombreCliente)
 							}
 						})
@@ -64,35 +64,49 @@ var popups = {
 
 	}
 
-}
+};
 
 $('document').ready(function() {
-	// $(".se-pre-con").fadeOut("slow");;
-
-	// $("#fakeloader").fakeLoader();
-
-	// alertify.defaults = {
-	// 	'transition': 'fade',
-	// 	'theme': {
-	// 		'ok': 'btn btn-primary',
-	// 		'cancel': 'btn btn default',
-	// 		'input': 'form-control'
-	// 	}
-	// }
-
 
 	// alertify config global
 	alertify.defaults.transition = "fade";
 	alertify.defaults.theme.ok = "btn btn-primary";
 	alertify.defaults.theme.cancel = "btn btn-default";
 	alertify.defaults.theme.input = "form-control";
-	console.log(alertify);
 	// Muestro div contenedor de la tabla clientes
 	$('.escondido').removeClass('escondido');
 
     // Inicializo Datatables
     tablaClientes = $('#tabla-clientes').DataTable({
    		"dom": '<"toolbar">lfrtip',
+		responsive: {
+			details: {
+				type: 'column'
+			}
+		},
+		columnDefs: [
+			{
+				"targets": [1, 8],
+				"searchable": false,
+				"orderable": false,
+			},
+			{
+				"targets": [5, 6, 7],
+				"responsivePriority": 10
+			},
+			{
+				"targets": [1, 0, 8],
+				"responsivePriority": 1
+			},
+			{
+				"targets": [2, 4],
+				"responsivePriority": 2
+			},
+			{
+				"targets": 3,
+				"responsivePriority": 3
+			}
+		]
     });
 
 	// Funcionalidad boton Nuevo Cliente
@@ -102,7 +116,7 @@ $('document').ready(function() {
 	});
 
 	// Funcionalidad boton Editar
-	$('#tabla-clientes').on('click', '.btn-editar', function(e) {
+	$('#tabla-clientes').on('click', '.btn-editar-cliente', function(e) {
 		$('#agregar-cliente-tit').html(MODIFICAR_CLIENTE);
 		id = this.dataset.id;
 		$.ajax({
@@ -116,10 +130,12 @@ $('document').ready(function() {
 	});
 
 	// Funcionalidad boton borrar
-	$('#tabla-clientes').on('click', '.btn-borrar', function(e) {
-		var nombreCliente = tablaClientes.row($(this).parent()).data()[0];
-		var id = this.dataset.id;
-		popups.confirmBorrarCliente(nombreCliente, id);
+	$('#tabla-clientes').on('click', '.btn-borrar-cliente', function(e) {
+		var tr = $(this).parents('tr')
+		var fila = tablaClientes.row(tr);
+		var nombreCliente = fila.data()[0];
+		var id = tr.data('id');
+		popups.confirmBorrarCliente(nombreCliente, id, fila);
 	});
 
 	// Contraer fila abierta al abrir otra 	
