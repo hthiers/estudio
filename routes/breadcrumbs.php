@@ -7,38 +7,46 @@
  */
 
 
-// Home
+// Inicio
 Breadcrumbs::register('inicio', function($breadcrumbs)
 {
-    $breadcrumbs->push('Lorem Estudio', route('inicio'));
+    $breadcrumbs->push(Config::get('app.name'), route('inicio'));
 });
 
+// Inicio > Clientes
 Breadcrumbs::register('clientes', function($breadcrumbs)
 {
     $breadcrumbs->parent('inicio');
     $breadcrumbs->push('Clientes', route('clientes'));
 });
 
-// Home > About
+// Inicio > Clientes > Cliente
 Breadcrumbs::register('cliente', function($breadcrumbs, $cliente)
 {
     $breadcrumbs->parent('clientes');
-    $breadcrumbs->push($cliente->nombre.' '.$cliente->apellido, route('cliente', [$id = $cliente->slug]));
+    $breadcrumbs->push($cliente->nombre.' '.$cliente->apellido, route('cliente', [$slug = $cliente->slug]));
 });
 
-// Home > Blog
-
-
-// Home > Blog > [Category]
-Breadcrumbs::register('category', function($breadcrumbs, $category)
+// Inicio > Expedientes
+Breadcrumbs::register('expedientes', function($breadcrumbs)
 {
-    $breadcrumbs->parent('blog');
-    $breadcrumbs->push($category->title, route('category', $category->id));
+    $breadcrumbs->parent('inicio');
+    $breadcrumbs->push('Expedientes', route('expedientes'));
 });
 
-// Home > Blog > [Category] > [Page]
-Breadcrumbs::register('page', function($breadcrumbs, $page)
+// Inicio > Expedientes > Expediente
+Breadcrumbs::register('expediente', function($breadcrumbs, $expediente)
 {
-    $breadcrumbs->parent('category', $page->category);
-    $breadcrumbs->push($page->title, route('page', $page->id));
+    $breadcrumbs->parent('expedientes');
+    $breadcrumbs->push($expediente->titulo, route('expediente', [$slug = $expediente->slug]));
 });
+
+// Inicio > Agenda
+Breadcrumbs::register('agenda', function($breadcrumbs)
+{
+    $breadcrumbs->parent('inicio');
+    $breadcrumbs->push('Agenda', route('agenda'));
+});
+
+
+
