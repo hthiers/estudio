@@ -73,6 +73,7 @@ $('document').ready(function() {
 
     // Inicializo Datatables
     tablaClientes = $('#tabla-clientes').DataTable({
+    	"responsive": true,
 		"processing": false,
 		"serverSide": false,
 		"ajax": "/api/clientes",
