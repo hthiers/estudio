@@ -16,8 +16,9 @@ class Cliente extends Entity
         'deleted_at'
     ];
 
-    protected $with = ['expedientes'];
+    protected $with = ['estadoCivil'];
 
+    protected $appends = ['fullname'];
     // Relaciones
     public function expedientes()
     {
@@ -56,6 +57,10 @@ class Cliente extends Entity
 
     public function getFullnameAttribute() {
         return $this->nombre.' '.$this->apellido;
+    }
+
+    public function setFullnameAttribute() {
+        $this->attributes['fullname'] = ucfirst($this->nombre.' '.$this->apellido);
     }
 
 }

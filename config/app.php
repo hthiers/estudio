@@ -184,6 +184,9 @@ return [
         // Breadcrumbs
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
 
+        // Laravel Datatables
+        Yajra\Datatables\DatatablesServiceProvider::class
+
     ],
 
     /*
@@ -246,6 +249,7 @@ return [
         'User' => Judici\Entities\User::class,
 
         'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
+        'Datatables' => Yajra\Datatables\Facades\Datatables::class
 
 
     ],

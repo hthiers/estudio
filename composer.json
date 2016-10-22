@@ -9,7 +9,8 @@
         "laravel/framework": "5.3.*",
         "cviebrock/eloquent-sluggable": "^4.1",
         "davejamesmiller/laravel-breadcrumbs": "^3.0",
-        "fzaninotto/faker": "~1.4"
+        "fzaninotto/faker": "~1.4",
+        "yajra/laravel-datatables-oracle": "~6.0"
     },
     "require-dev": {
         "mockery/mockery": "0.9.*",

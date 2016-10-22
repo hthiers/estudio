@@ -13,7 +13,8 @@
 
 Auth::routes();
 
-Route::group(['middleware' => 'auth'], function(){
+Route::group(['middleware' => 'auth'], function()
+{
 
     Route::get('/', 'EstudioController@index')->name('inicio');
     Route::get('agenda',  [
@@ -25,5 +26,14 @@ Route::group(['middleware' => 'auth'], function(){
     Route::post('clientes/addOrUpdate', 'ClientesController@addOrUpdate');
     Route::post('clientes/borrar', 'ClientesController@delete');
     Route::get('expedientes', 'ExpedientesController@index')->name('expedientes');
+    Route::get('api/clientes', function()
+    {
+        $clientes = Cliente::get();
+        return Datatables::of($clientes)->make(true);
+    });
+    Route::get('api/prueba', function(){
+        $clientes = Cliente::get()->with($this->attributes['fullname']);
+        return Datatables::of($clientes)->make(true);
+    });
 });
 

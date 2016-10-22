@@ -121,3 +121,18 @@ table.dataTable thead .no-sort.sorting_asc:after {
 .breadcrumb > li + li:before {
     padding: 0;
 }
+
+.titulo-botonera {
+    margin-right: 0;
+}
+
+/* Boton de nuevo cliente*/
+#btn-nuevo-cliente {
+    color: rgb(38, 185, 154);
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.top_search {
+    z-index: 1;
+}

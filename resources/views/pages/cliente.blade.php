@@ -1,5 +1,7 @@
 @extends('layout.app')
 
+@section('title', $cliente->fullname)
+
 @section('estilos')
 
 <link rel="stylesheet" type="text/css" href="{{ url('css/datatables.css') }}" />
@@ -14,7 +16,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>{!! Breadcrumbs::render('cliente', $cliente) !!}</h3>
+                <h3>{{ $cliente->fullname }}</h3>
               </div>
 
 
@@ -26,7 +28,7 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>{{ $cliente->fullname }}<small>@langUpc('etiquetas.datos-personales')</small></h2>
+                    <h2>{!! Breadcrumbs::render('cliente', $cliente) !!}</h2>
 
                     <div class="clearfix"></div>
                   </div>

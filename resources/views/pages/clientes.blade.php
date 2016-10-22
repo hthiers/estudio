@@ -1,9 +1,10 @@
 @extends('layout.app')
 
 @section('style')
-    <link rel="stylesheet" type="text/css" href="{{ url('css/datatables.css') }}"/>
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/alertifyjs/1.8.0/css/alertify.min.css"/>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/alertifyjs/1.8.0/css/themes/bootstrap.min.css"/>
+    {{-- Datatables style para bootstrap 3 --}}
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/alertifyjs/1.8.0/css/alertify.min.css"/>
 @endsection
 
 @section('title', 'Clientes')
@@ -14,15 +15,17 @@
 
         <div class="page-title">
             <div class="title_left">
-                <h3>{!! Breadcrumbs::render('clientes') !!}</h3>
+                <h3>Clientes</h3>
             </div>
 
             <div class="title_right">
-                <div class="btn-derecha col-md-5 col-sm-5 col-xs-12 pull-right">
-                    <button id="btn-nuevo-cliente" type="button" class="btn btn-success">
-                        <i class="fa fa-plus-circle fa-fw" aria-hidden="true"></i> Nuevo
-                    </button>
-
+                <div class="btn-derecha col-md-5 col-sm-5 col-xs-12 pull-right top_search">
+                    <div class="input-group">
+                    <input type="text" id="buscador-clientes" class="buscador-gde form-control">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    </span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -33,23 +36,12 @@
             <div class="col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Titulo
-                            <small>Subtítulo</small>
-                        </h2>
-                        <ul class="nav navbar-right panel_toolbox">
-                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                   aria-expanded="false">
-                                    <i class="fa fa-wrench"></i>
-                                </a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">Config 1</a></li>
-                                    <li><a href="#">Config 2</a></li>
-                                </ul>
-                            </li>
-                            <li><a class="close-link"><i class="fa fa-close"></i></a></li>
-                        </ul>
+                        <div class="title_left">
+                            <h2> {!! Breadcrumbs::render('clientes') !!}</h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li><a id="btn-nuevo-cliente" class="">Nuevo cliente <i class="fa fa-plus-circle fa-fw"></i></a></li>
+                            </ul>
+                        </div>
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">{{-- Fin de encabezado --}}
@@ -77,10 +69,9 @@
                                     <th>@langUPC('etiquetas.documento')</th>
                                     <th>@langUpC('etiquetas.domicilio')</th>
                                     <th>@langUpC('etiquetas.estado-civil')</th>
-                                    <th></th>
                                 </tr>
                                 </thead>
-                                <tbody>
+                                {{--<tbody>
                                 @forelse($clientes as $cliente)
                                     <tr data-id="{{ $cliente->id }}">
                                         <td class=" ">
@@ -121,7 +112,7 @@
                                 @empty
                                     <td colspan="8" class="centrar-texto">@langUpc('mensajes.sin-clientes')</td>
                                 @endforelse
-                                </tbody>
+                                </tbody> --}}
                             </table>
                         </div>
                     </div>

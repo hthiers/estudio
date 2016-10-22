@@ -73,7 +73,27 @@ $('document').ready(function() {
 
     // Inicializo Datatables
     tablaClientes = $('#tabla-clientes').DataTable({
-   		dom: '<"toolbar">lfrtip',
+		"processing": false,
+		"serverSide": false,
+		"ajax": "/api/clientes",
+		//"stateSave": true,
+		"columns":[
+			{data: 'fullname'},
+			{
+				data: 'slug',
+				"bSortable": false,
+				"mRender": function (data, type, full) {
+					return '<a class="btn-show-client" href="./clientes/' + data + '"><span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span></a>';
+				}
+			},
+			{data: 'celular'},
+			{data: 'telefono'},
+			{data: 'email'},
+			{data: 'dni'},
+			{data: 'domicilio'},
+			{data: 'estado_civil.estado' },
+		],
+   		dom: '<"toolbar">rtip',
 		"language": {
 			"url": "./js/datatables/spanish.lang"
 		},
@@ -84,16 +104,16 @@ $('document').ready(function() {
 		},
 		columnDefs: [
 			{
-				"targets": [1, 8],
+				"targets": [1, 6],
 				"searchable": false,
-				"orderable": false,
+				"orderable": false
 			},
 			{
-				"targets": [5, 6, 7],
+				"targets": [4, 5, 6],
 				"responsivePriority": 10
 			},
 			{
-				"targets": [1, 0, 8],
+				"targets": [1, 0],
 				"responsivePriority": 1
 			},
 			{
@@ -148,6 +168,9 @@ $('document').ready(function() {
 		        }
 		    });
 	    }
+	});
+	$("#buscador-clientes").keyup(function() {
+		tablaClientes.search(this.value).draw();
 	});
 
 

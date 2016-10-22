@@ -13,10 +13,10 @@
                     <li><a href="{{ url('/login') }}">Login</a></li>
                     <li><a href="{{ url('/register') }}">Register</a></li>
                 @else
-                <li class="">
+                <li class="pull-right">
                     <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                         <img src="{{ url('img/saul.jpg') }}" alt="">{{ Auth::user()->username }}
-                        <span class=" fa fa-angle-down"></span>
+                        <i class="fa fa-angle-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-usermenu pull-right">
                         <li><a href="javascript:;">
