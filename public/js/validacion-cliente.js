@@ -3,9 +3,7 @@
  */
 
 function clearValidation(formElement){
-    //Internal $.validator is exposed through $(form).validate()
     var validator = $(formElement).validate();
-    //Iterate through named elements inside of the form, and mark them as error free
     $('[name]',formElement).each(function(){
         $(this).closest('div.form-group').removeClass('has-error');
     });
@@ -18,12 +16,9 @@ function cleanForm(formElement) {
         $(formElement).trigger('reset');
 }
 
-
-
 $(document).ready(function(){
     $('#agregar-cliente').validate({
         rules: {
-            // no quoting necessary
             nombre: {
                 required: true,
                 minlength: 3,

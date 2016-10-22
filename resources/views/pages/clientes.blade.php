@@ -1,18 +1,16 @@
-@extends('layouts.app')
+@extends('layout.app')
 
-@section('estilos')
-
+@section('style')
     <link rel="stylesheet" type="text/css" href="{{ url('css/datatables.css') }}" />
     <link rel="stylesheet" href="//cdn.jsdelivr.net/alertifyjs/1.8.0/css/alertify.min.css"/>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/alertifyjs/1.8.0/css/themes/bootstrap.min.css"/>
-
 @endsection
+
+@section('title', 'Clientes')
 
 @section('content')
 
-	
     <div class="right_col" role="main">
-   
 
         <div class="page-title">
             <div class="title_left">
@@ -27,7 +25,6 @@
                 </div>
             </div>
         </div>
-		
 
         <div class="row">
 
@@ -106,13 +103,12 @@
 @endsection
 
 
-@section('bottom-scripts')
+@section('section-scripts')
     <script src="{{ url('js/jquery.validate.js') }}"></script>
-    <script src="{{ url('js/validacion-cliente.js') }}"></script>
     <script src="{{ url('js/datatables.js') }}"></script>
-    <script src="{{ url('js/fakeloader.min.js') }}"></script>
     <script src="{{ url('js/clientes.js') }}"></script>
     <script src="//cdn.jsdelivr.net/alertifyjs/1.8.0/alertify.min.js"></script>
+    <script src="{{ url('js/validacion-cliente.js') }}"></script>
 
 
 @endsection
