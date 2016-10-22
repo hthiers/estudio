@@ -22,8 +22,6 @@ function notButton($jqObj) {
 var popups = {
 
 	confirmBorrarCliente : function(nombreCliente, id, fila) {
-		// <span class="glyphicons glyphicons-question-sign"></span>
-		
 		// La fila del cliente a borrar en la tabla
 		var row = tablaClientes.row('.parent');
 		alertify.confirm().setting({
@@ -56,12 +54,9 @@ var popups = {
 							}
 						})
 					},
-				'oncancel': function(){ 
-		                 
+				'oncancel': function(){
 		            }
-		        
 		}).show();
-
 	}
 
 };
