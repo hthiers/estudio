@@ -92,7 +92,10 @@ $('document').ready(function() {
 			{data: 'email'},
 			{data: 'dni'},
 			{data: 'domicilio'},
-			{data: 'estado_civil.estado' },
+			{
+				data: 'estado_civil.estado',
+				"defaultContent": "<i>Not set</i>"
+			},
 		],
    		dom: '<"toolbar">rtip',
 		"language": {
