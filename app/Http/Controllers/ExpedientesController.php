@@ -1,11 +1,11 @@
 <?php
 
-namespace Estudio\Http\Controllers;
+namespace Judici\Http\Controllers;
 
-use Estudio\Entities\Expediente;
+use Judici\Entities\Expediente;
 use Illuminate\Http\Request;
 
-use Estudio\Http\Requests;
+use Judici\Http\Requests;
 
 class ExpedientesController extends Controller
 {

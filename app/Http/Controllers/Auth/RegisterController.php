@@ -1,9 +1,9 @@
 <?php
 
-namespace Estudio\Http\Controllers\Auth;
+namespace Judici\Http\Controllers\Auth;
 
 use Validator;
-use Estudio\Http\Controllers\Controller;
+use Judici\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller

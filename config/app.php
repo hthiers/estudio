@@ -172,11 +172,11 @@ return [
         /*
          * Application Service Providers...
          */
-        Estudio\Providers\AppServiceProvider::class,
-        Estudio\Providers\AuthServiceProvider::class,
-        // Estudio\Providers\BroadcastServiceProvider::class,
-        Estudio\Providers\EventServiceProvider::class,
-        Estudio\Providers\RouteServiceProvider::class,
+        Judici\Providers\AppServiceProvider::class,
+        Judici\Providers\AuthServiceProvider::class,
+        // Judici\Providers\BroadcastServiceProvider::class,
+        Judici\Providers\EventServiceProvider::class,
+        Judici\Providers\RouteServiceProvider::class,
 
         // Eloquent Sluggeable
         Cviebrock\EloquentSluggable\ServiceProvider::class,
@@ -232,18 +232,18 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         // Entities
-        'Cita' => Estudio\Entities\Cita::class,
-        'Cliente' => Estudio\Entities\Cliente::class,
-        'Comentario' => Estudio\Entities\Comentario::class,
-        'Entity' => Estudio\Entities\Entity::class,
-        'EstadoCivil' => Estudio\Entities\EstadoCivil::class,
-        'Estudio' => Estudio\Entities\Estudio::class,
-        'Expediente' => Estudio\Entities\Expediente::class,
-        'Jurisdiccion' => Estudio\Entities\Jurisdiccion::class,
-        'Permiso' => Estudio\Entities\Permiso::class,
-        'Rama' => Estudio\Entities\Rama::class,
-        'Rol' => Estudio\Entities\Rol::class,
-        'User' => Estudio\Entities\User::class,
+        'Cita' => Judici\Entities\Cita::class,
+        'Cliente' => Judici\Entities\Cliente::class,
+        'Comentario' => Judici\Entities\Comentario::class,
+        'Entity' => Judici\Entities\Entity::class,
+        'EstadoCivil' => Judici\Entities\EstadoCivil::class,
+        'Estudio' => Judici\Entities\Estudio::class,
+        'Expediente' => Judici\Entities\Expediente::class,
+        'Jurisdiccion' => Judici\Entities\Jurisdiccion::class,
+        'Permiso' => Judici\Entities\Permiso::class,
+        'Rama' => Judici\Entities\Rama::class,
+        'Rol' => Judici\Entities\Rol::class,
+        'User' => Judici\Entities\User::class,
 
         'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
 

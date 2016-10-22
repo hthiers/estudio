@@ -1,11 +1,11 @@
 <?php
 
-namespace Estudio\Http\Controllers;
+namespace Judici\Http\Controllers;
 
-use Estudio\Entities\EstadoCivil;
+use Judici\Entities\EstadoCivil;
 use Illuminate\Http\Request;
 
-use Estudio\Entities\Cliente;
+use Judici\Entities\Cliente;
 
 class ClientesController extends Controller
 {

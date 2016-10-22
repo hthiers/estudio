@@ -73,7 +73,10 @@ $('document').ready(function() {
 
     // Inicializo Datatables
     tablaClientes = $('#tabla-clientes').DataTable({
-   		"dom": '<"toolbar">lfrtip',
+   		dom: '<"toolbar">lfrtip',
+		"language": {
+			"url": "./js/datatables/spanish.lang"
+		},
 		responsive: {
 			details: {
 				type: 'column'

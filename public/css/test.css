@@ -115,7 +115,7 @@ table.dataTable thead .no-sort.sorting_asc:after {
 /* Estilo y correcciones al breadcrumb */
 .breadcrumb {
     background: transparent;
-    font-size: 0.9em;
+    font-size: 0.7em;
     padding-left: 2px;
 }
 .breadcrumb > li + li:before {

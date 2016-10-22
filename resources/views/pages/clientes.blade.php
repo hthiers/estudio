@@ -1,7 +1,7 @@
 @extends('layout.app')
 
 @section('style')
-    <link rel="stylesheet" type="text/css" href="{{ url('css/datatables.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url('css/datatables.css') }}"/>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/alertifyjs/1.8.0/css/alertify.min.css"/>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/alertifyjs/1.8.0/css/themes/bootstrap.min.css"/>
 @endsection
@@ -19,8 +19,9 @@
 
             <div class="title_right">
                 <div class="btn-derecha col-md-5 col-sm-5 col-xs-12 pull-right">
-                    <button id="btn-nuevo-cliente" type="button" class="btn btn-success" >
-                        <i class="fa fa-plus-circle fa-fw" aria-hidden="true"></i> Nuevo</button>
+                    <button id="btn-nuevo-cliente" type="button" class="btn btn-success">
+                        <i class="fa fa-plus-circle fa-fw" aria-hidden="true"></i> Nuevo
+                    </button>
 
                 </div>
             </div>
@@ -28,28 +29,56 @@
 
         <div class="row">
 
-            @if($errors->any())
-                <div class="alert alert-danger alert-dismissible fade in" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
-                    </button>
-                    <strong>{{ $errors->first() }} </strong>No se ha agregado el cliente.
-                </div>
-            @endif
-			
-            <div class="col-md-12 col-sm-12 col-xs-12 escondido top_search">
-                            <table id="tabla-clientes" class="table table-striped dt-responsive nowrap" cellspacing="0" width="100%">
+            {{-- Fondo blanco y encabezado de cada pagina --}}
+            <div class="col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Titulo
+                            <small>Subtítulo</small>
+                        </h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                   aria-expanded="false">
+                                    <i class="fa fa-wrench"></i>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">Config 1</a></li>
+                                    <li><a href="#">Config 2</a></li>
+                                </ul>
+                            </li>
+                            <li><a class="close-link"><i class="fa fa-close"></i></a></li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">{{-- Fin de encabezado --}}
+
+
+                        @if($errors->any())
+                            <div class="alert alert-danger alert-dismissible fade in" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                            aria-hidden="true">×</span>
+                                </button>
+                                <strong>{{ $errors->first() }} </strong>No se ha agregado el cliente.
+                            </div>
+                        @endif
+
+                        <div class="col-md-12 col-sm-12 col-xs-12 escondido top_search">
+                            <table id="tabla-clientes" class="table table-striped dt-responsive nowrap" cellspacing="0"
+                                   width="100%">
                                 <thead>
-                                    <tr>
-                                        <th>@langUpC('etiquetas.nombre')</th>
-                                        <th class="no-sort"></th>
-                                        <th>@langUpC('etiquetas.celular')</th>
-                                        <th>@langUpC('etiquetas.telefono')</th>
-                                        <th>@langUpC('etiquetas.mail')</th>
-                                        <th>@langUPC('etiquetas.documento')</th>
-                                        <th>@langUpC('etiquetas.domicilio')</th>
-                                        <th>@langUpC('etiquetas.estado-civil')</th>
-                                        <th></th>
-                                    </tr>
+                                <tr>
+                                    <th>@langUpC('etiquetas.nombre')</th>
+                                    <th class="no-sort"></th>
+                                    <th>@langUpC('etiquetas.celular')</th>
+                                    <th>@langUpC('etiquetas.telefono')</th>
+                                    <th>@langUpC('etiquetas.mail')</th>
+                                    <th>@langUPC('etiquetas.documento')</th>
+                                    <th>@langUpC('etiquetas.domicilio')</th>
+                                    <th>@langUpC('etiquetas.estado-civil')</th>
+                                    <th></th>
+                                </tr>
                                 </thead>
                                 <tbody>
                                 @forelse($clientes as $cliente)
@@ -57,7 +86,9 @@
                                         <td class=" ">
                                             {{ $cliente->apellido.', '.$cliente->nombre }}
                                         </td>
-                                        <td><a href="{{ url('clientes/'.$cliente->slug) }}"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span></a></td>
+                                        <td><a href="{{ url('clientes/'.$cliente->slug) }}"><span
+                                                        class="glyphicon glyphicon-list-alt" aria-hidden="true"></span></a>
+                                        </td>
                                         <td>{{ $cliente->celular }}</td>
                                         <td>{{ $cliente->telefono }}</td>
                                         <td>{{ $cliente->email }}</td>
@@ -66,9 +97,11 @@
                                         <td>{{ $cliente->estadoCivil? $cliente->estadoCivil->estado : "---" }}</td>
                                         <td>
                                             <div class="btn-group">
-                                                <span class="glyphicon glyphicon-option-vertical dropdown-toggle cursor-pointer" data-toggle="dropdown" aria-hidden="true"></span>
+                                                <span class="glyphicon glyphicon-option-vertical dropdown-toggle cursor-pointer"
+                                                      data-toggle="dropdown" aria-hidden="true"></span>
                                                 <ul class="dropdown-menu pull-right">
-                                                    <li><a href="{{ route('cliente', [$slug = $cliente->slug]) }}" class="btn-vermas-cliente">
+                                                    <li><a href="{{ route('cliente', [$slug = $cliente->slug]) }}"
+                                                           class="btn-vermas-cliente">
                                                             @langUpc('etiquetas.ver-mas...')
                                                         </a></li>
                                                     <li><a data-id="{{ $cliente->id }}" class="">
@@ -90,13 +123,16 @@
                                 @endforelse
                                 </tbody>
                             </table>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
     @include('popups.cliente-nuevo')
     @include('popups.confirma-borrar')
-    
+
 
 
 

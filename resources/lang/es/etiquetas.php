@@ -27,7 +27,7 @@ return [
     'documento' => 'dni',
     'domicilio' => 'domicilio',
     'estado-civil' => 'estado civil',
-    'datos-personales' => 'datos personales',
+    'datos-personales' => 'ficha personal',
 
     'ver-mas...' => 'ver mas...',
     'expedientes' => 'expedientes'

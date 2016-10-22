@@ -1,6 +1,6 @@
 <?php
 
-namespace Estudio\Entities;
+namespace Judici\Entities;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;

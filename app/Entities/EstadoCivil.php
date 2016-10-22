@@ -1,6 +1,6 @@
 <?php
 
-namespace Estudio\Entities;
+namespace Judici\Entities;
 
 class EstadoCivil extends Entity
 {

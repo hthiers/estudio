@@ -23,7 +23,7 @@
             "app/Entities"
         ],
         "psr-4": {
-            "Estudio\\": "app/"
+            "Judici\\": "app/"
         }
     },
     "autoload-dev": {

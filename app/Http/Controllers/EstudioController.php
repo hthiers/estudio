@@ -1,10 +1,10 @@
 <?php
 
-namespace Estudio\Http\Controllers;
+namespace Judici\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use Estudio\Http\Requests;
+use Judici\Http\Requests;
 
 class EstudioController extends Controller
 {

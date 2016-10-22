@@ -1,8 +1,8 @@
 <?php
 
-namespace Estudio\Http\Controllers\Auth;
+namespace Judici\Http\Controllers\Auth;
 
-use Estudio\Http\Controllers\Controller;
+use Judici\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 
 class ForgotPasswordController extends Controller

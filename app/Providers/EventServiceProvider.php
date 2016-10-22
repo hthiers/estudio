@@ -1,6 +1,6 @@
 <?php
 
-namespace Estudio\Providers;
+namespace Judici\Providers;
 
 use Illuminate\Support\Facades\Event;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -13,8 +13,8 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'Estudio\Events\SomeEvent' => [
-            'Estudio\Listeners\EventListener',
+        'Judici\Events\SomeEvent' => [
+            'Judici\Listeners\EventListener',
         ],
     ];
 
