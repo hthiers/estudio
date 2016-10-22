@@ -104,11 +104,16 @@
 
 
 @section('section-scripts')
+    {{-- jQuery Validate --}}
     <script src="{{ url('js/jquery.validate.js') }}"></script>
-    <script src="{{ url('js/datatables.js') }}"></script>
-    <script src="{{ url('js/clientes.js') }}"></script>
+    {{-- Datatables --}}
+    <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+    {{-- Alertify --}}
     <script src="//cdn.jsdelivr.net/alertifyjs/1.8.0/alertify.min.js"></script>
+    {{-- Script propio --}}
+    <script src="{{ url('js/clientes.js') }}"></script>
+    {{-- Validaciones formularios --}}
     <script src="{{ url('js/validacion-cliente.js') }}"></script>
-
 
 @endsection
