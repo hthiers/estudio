@@ -3,7 +3,8 @@
 @section('style')
     <link rel="stylesheet" href="//cdn.jsdelivr.net/alertifyjs/1.8.0/css/themes/bootstrap.min.css"/>
     {{-- Datatables style para bootstrap 3 --}}
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.12/r-2.1.0/datatables.min.css"/>
+    {{-- Alertify --}}
     <link rel="stylesheet" href="//cdn.jsdelivr.net/alertifyjs/1.8.0/css/alertify.min.css"/>
 @endsection
 
@@ -69,6 +70,7 @@
                                     <th>@langUPC('etiquetas.documento')</th>
                                     <th>@langUpC('etiquetas.domicilio')</th>
                                     <th>@langUpC('etiquetas.estado-civil')</th>
+                                    <th></th>
                                 </tr>
                                 </thead>
                                 {{--<tbody>
@@ -134,8 +136,7 @@
     {{-- jQuery Validate --}}
     <script src="{{ url('js/jquery.validate.js') }}"></script>
     {{-- Datatables --}}
-    <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.12/r-2.1.0/datatables.min.js"></script>
     {{-- Alertify --}}
     <script src="//cdn.jsdelivr.net/alertifyjs/1.8.0/alertify.min.js"></script>
     {{-- Script propio --}}

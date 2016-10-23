@@ -132,7 +132,7 @@ table.dataTable thead .no-sort.sorting_asc:after {
     font-size: 1.2em;
     font-weight: bold;
 }
-
+/* Para que los buscadores no tapen los menues */
 .top_search {
     z-index: 1;
 }
