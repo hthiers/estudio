@@ -195,7 +195,7 @@ $('document').ready(function() {
 	// Funcionalidad boton borrar
 	$('#tabla-clientes').on('click', '.btn-borrar-cliente', function(e) {
 		var oFila = dtClientes.row($(this).parents('tr'));
-		var oCliente = fila.data();
+		var oCliente = oFila.data();
 		var sNombre = oCliente.fullname;
 		var nId = oCliente.id;
 		popups.confirmBorrarCliente(sNombre, nId, oFila);
