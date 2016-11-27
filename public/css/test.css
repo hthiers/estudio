@@ -99,6 +99,7 @@ div.modal-header .close span {
 
 .btn-vermas-cliente {
     font-weight: bold !important;
+    font-size: 1.2em;
 }
 
 /* Fix para ocultar icono de la primer columna   *
@@ -127,12 +128,43 @@ table.dataTable thead .no-sort.sorting_asc:after {
 }
 
 /* Boton de nuevo cliente*/
-#btn-nuevo-cliente {
-    color: rgb(38, 185, 154);
-    font-size: 1.2em;
-    font-weight: bold;
+.btn-cliente-nuevo {
+    color: #fff !important;
 }
 /* Para que los buscadores no tapen los menues */
 .top_search {
     z-index: 1;
+}
+
+/** Color de iconos de ordenado cabecera de tablas*/
+table.dataTable thead .sorting_asc:after, table.dataTable thead .sorting_desc:after {
+    color: rgb(38, 185, 154);
+    opacity: 0.9 !important;
+}
+
+.btn-show-client {
+    color: rgb(240, 173, 78);
+    font-size: 1.2em;
+
+}
+
+div.tabla-pie {
+    margin-top: 2em;
+}
+div.dataTables_wrapper div.dataTables_paginate {
+    float: none !important;
+    text-align: center !important;
+}
+
+/** Correccion del fondo :hover de btn-success */
+.btn-success:hover, .btn-success:focus,
+.btn-success:active, .btn-success.active,
+.open .dropdown-toggle.btn-success {
+    background: #169F85 !important;
+}
+
+/** Icono de los botones */
+.btn-icon {
+    margin-right: 0.4em;
+    color: #fff !important;
 }

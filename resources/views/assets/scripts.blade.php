@@ -5,11 +5,15 @@
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 
-{{-- Jquery --}}
-<script src="{{ url('js/jquery.min.js') }}"></script>
-{{-- Boostrap --}}
-<script src="{{ url('js/bootstrap.min.js') }}"></script>
-{{-- Gentelella --}}
-<script src="{{ url('js/gentelella.min.js') }}"></script>
-{{-- Js propio--}}
-<script src="{{ url('js/judici.js') }}"></script>
+{{-- requirejs
+<script src="{{ url('vendor/require.js') }}" data-main="{{ url('resources/js/app.js') }}"></script> --}}
+
+
+{{-- Jquery
+<script src="{{ url('js/jquery.min.js') }}"></script> --}}
+{{-- Boostrap
+<script src="{{ url('js/bootstrap.min.js') }}"></script> --}}
+{{-- Gentelella
+<script src="{{ url('js/gentelella.min.js') }}"></script> --}}
+{{-- Js propio
+<script src="{{ url('js/judici.js') }}"></script> --}}

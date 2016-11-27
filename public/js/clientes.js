@@ -5,39 +5,57 @@ const MODIFICAR_CLIENTE = 'Modificar Cliente';
  *  Opciones de datatables
  * */
 var oClientesOptions = {
-		"processing": false,
-		"serverSide": false,
-		"ajax": "/api/clientes",
-		//"stateSave": true,
-		"columns":[
-		{data: 'fullname'},
+	processing: false,
+	serverSide: false,
+	ajax: '/api/clientes',
+	columns:[
 		{
+			name: 'fullname',
+			data: 'fullname'
+		},
+		{
+			name: 'ver-mas',
 			data: 'slug',
-			"bSortable": false,
-			"mRender": function (data, type, full) {
+			mRender: function (data, type, full) {
 				return sBotonVerCliente(data);
 			}
 		},
-		{data: 'celular'},
-		{data: 'telefono'},
-		{data: 'email'},
-		{data: 'dni'},
-		{data: 'domicilio'},
 		{
+			name: 'celular',
+			data: 'celular'
+		},
+		{
+			name: 'telefono',
+			data: 'telefono'
+		},
+		{
+			name: 'email',
+			data: 'email'
+		},
+		{
+			name: 'dni',
+			data: 'dni'
+		},
+		{
+			name: 'domicilio',
+			data: 'domicilio'
+		},
+		{
+			name: 'estado-civil',
 			data: 'estado_civil.estado',
 			defaultContent: ""
 		},
 		{
+			name: 'opciones',
 			data: 'id',
-			"bSortable": false,
-			"mRender": function (data, type, full) {
+			mRender: function (data, type, full) {
 				return sMenuOpciones(data, full);
 			}
 		}
-],
+	],
 	dom: '<"toolbar">rtip',
-	"language": {
-	"url": "./js/datatables/spanish.lang"
+	language: {
+	url: './js/datatables/spanish.lang'
 	},
 		responsive: {
 			details: {
@@ -46,25 +64,25 @@ var oClientesOptions = {
 		},
 		columnDefs: [
 			{
-				"targets": [1, 7],
-				"searchable": false,
-				"orderable": false
+				targets: ['ver-mas', 'opciones'],
+				searchable: false,
+				orderable: false
 			},
 			{
-				"targets": [4, 5, 6],
-				"responsivePriority": 10
+				targets: ['dni', 'domicilio', 'estado-civil'],
+				responsivePriority: 10
 			},
 			{
-				"targets": [1, 0, -1],
-				"responsivePriority": 1
+				targets: ['fullname', 'ver-mas', -1],
+				responsivePriority: 1
 			},
 			{
-				"targets": [2, 4],
-				"responsivePriority": 2
+				targets: ['celular', 'email'],
+				responsivePriority: 2
 			},
 			{
-				"targets": 3,
-				"responsivePriority": 3
+				targets: 'telefono',
+				responsivePriority: 3
 			}
 		]
 	};
@@ -89,7 +107,8 @@ var sMenuOpciones = function(nId, oCliente) {
 
 var sBotonVerCliente = function(sSlug) {
 	return '<a class="btn-show-client" href="./clientes/' + sSlug + '">' +
-			'<span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a>';
+			'<i class="fa fa-archive" aria-hidden="true"></i>';
+			//'<span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a>';
 };
 // Fin snippets
 
@@ -137,22 +156,10 @@ var popups = {
 				'moveBounded': true,
 				'reverseButtons': true,
 				'onok': function(){
-					$.ajax({
-						  url: 'clientes/borrar',
-						  type : 'POST',
-						  data: {
-							  'id': nId
-							  }
-						  })
-						.success(
-						         function(data) {
-							if (data == 1) {
-								oFila.remove().draw(false);
-								alertify.success('Borrado ' + sNombre)
-							}
-						})
+					return true;
 					},
 				'oncancel': function(){
+					return false;
 		            }
 		}).show();
 	}
@@ -162,10 +169,10 @@ var popups = {
 $('document').ready(function() {
 
 	// alertify config global
-	alertify.defaults.transition = "fade";
-	alertify.defaults.theme.ok = "btn btn-primary";
-	alertify.defaults.theme.cancel = "btn btn-default";
-	alertify.defaults.theme.input = "form-control";
+	//alertify.defaults.transition = "fade";
+	//alertify.defaults.theme.ok = "btn btn-primary";
+	//alertify.defaults.theme.cancel = "btn btn-default";
+	//alertify.defaults.theme.input = "form-control";
 	// Muestro div contenedor de la tabla clientes
 	$('.escondido').removeClass('escondido');
 

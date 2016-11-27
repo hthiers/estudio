@@ -13,6 +13,11 @@
     {{-- Estilo propio de cada sección --}}
     @yield('style')
 
+    {{-- Require js --}}
+    <script src="{{ url('vendor/require.js') }}"
+            data-main="@yield('require-main', url('resources/js/main.js'))"></script>
+
+
     <title>@yield('title') - {{ Config::get('app.name') }}</title>
 
 </head>
@@ -37,11 +42,13 @@
 {{-- Script propio de cada seccion --}}
 @yield('section-scripts')
 {{-- Para pasar los token en cada request ajax --}}
+{{--
 <script type="text/javascript">
 $.ajaxSetup({
    headers: { 'X-CSRF-Token' : $('meta[name=_token]').attr('content') }
 });
 </script>
+--}}
 
 </body>
 </html>
