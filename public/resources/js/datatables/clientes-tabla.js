@@ -1,100 +1,134 @@
 /**
- * Created by fethe on 05/11/16.
- */
+* Created by fethe on 05/11/16.
+*/
 define([
-    'jquery',
-    'datatables.net',
-    'datatables.net-bs',
-    'app/datatables/clientes-config',
-    'app/renderer/popups/clientes-alertas'
+        'jquery',
+        'datatables.net',
+        'datatables.net-bs',
+        'app/datatables/clientes-config',
+        'app/utils/eventos',
+        'app/renderer/popups/clientes-alertas'
+        // 'app/datatables/clientes-buttons'
     ],
-    function($, Datatable, dtbs, oClientesOptions, Popups) {
+    function($, Datatable, dtbs, oClientesOptions, E, Popups, eventSubscribers) {
 
         /** @type {(jquery)} - datatable de clientes */
         var oDataTable;
+        var sModule;
 
         /**
          * Generar la datatable
-         * @param {jquery} $table - objeto jquery de la tabla
+         * @param {string} sTableId - id de la tabla
          * */
-        function _startTable($table) {
-            oDataTable = $table.DataTable(oClientesOptions);
+        function _startTable(sTableId) {
+            oDataTable = $('#'+sTableId).DataTable(oClientesOptions);
+            console.log(oDataTable);
+            sModule = sTableId.substr(0, sTableId.indexOf('-'));
+            // TODO remover console.log
+            console.log('se ha cargado el módulo ' + sModule);
+
         }
 
         /**
-         * Borrar la fila de un cliente
-         * @param {string} sSlug - slug del cliente a eliminar
+         * Borra un registro del servidor y la tabla
+         * @param {string} nId - id del registro a eliminar
          * */
-        function _remove(sSlug) {
-            oDataTable.rows(function(idx, data, node){
-              return data['ver-mas'] === sSlug;
-            }).remove().draw(false);
-        }
-
-        function _delete(nId){
-
+        function _delete(nId) {
             $.ajax({
-                url: 'clientes/borrar',
+                url: sModule + '/borrar',
                 type: 'POST',
                 data: {
                     'id': nId
                 }
-            }).success(
-                function (data) {
-                    if (data == 1) {
-                        oFila.remove().draw(false);
-                        alertify.success('Borrado ' + sNombre)
-                    }
+            })
+                .done(
+                    function (data) {
+                        if (data == 1) {
+                            oDataTable.rows(function(idx, data, node){
+                                return data.id === nId;
+                            }).remove().draw(false);
+                            $.publish($.evt[sModule]['delete-success']);
+                        }
+                    })
+                .fail(function(){
+                    $.publish($.evt[sModule]['delete-fail']);
                 });
-
         }
+
         /**
-         * Subscripción a los eventos para actualizar la vista
+         * Prepara los botones para borrar clientes
          * */
-        function subscribeEvents(oButtons) {
-            oDataTable.on('click', oButtons.borrarCliente, function(e){
-                var oFila = dtClientes.row($(this).parents('tr'));
-                var oCliente = oFila.data();
-                var sNombre = oCliente.nombre;
+        function _setupDeleteButtons() {
+            var $btnDelete = $('.btn-' + sModule + 'delete');
+            oDataTable.on('click', $btnDelete, function(e){
+                var oCliente = oDataTable.row($(this).parents('tr')).data();
                 var nId = oCliente.id;
-                var bConfirm = Popups.confirmaBorrar(nId, sNombre);
-                if (bConfirm) console.log("confirmó");
-
-
-
-               //_deleteCliente(nId, bConfirm);
+                var sFullname = oCliente.fullname;
+                $.publish($.evt[sModule]['delete-requested'], [nId, sFullname]);
             });
-
-            //$.subscribe('cliente-deleted', _remove('cliente-deleted'));
+        }
+        /**
+         * Prepara los botones para editar clientes
+         * */
+        function _setupEditButtons() {
+            var $btnEdit = $('.btn-' + sModule + 'edit');
+            oDataTable.on('click', $btnEdit, function(e){
+                var oCliente = oDataTable.row($(this).parents('tr')).data();
+                var nId = oCliente.id;
+                var sFullname = oCliente.fullname;
+                $.publish($.evt[sModule]['edit-requested'], [nId, sFullname]);
+            });
         }
 
-        /**
-         * Vincular input como buscador de la tabla
-         * */
-        function _setSearchInput($input){
-            if ($input) {
-                $input.on('input', function() {
-                    oDataTable.search(this.value).draw();
-                });
+        function subscribeEvents() {
+            for (var oElem in eventSubscribers) {
+                if (eventSubscribers.hasOwnProperty(oElem)) {
+                    oElem.events.each(function (sName, oEvent) {
+                        if (oElem.hasOwnProperty(sKey)) {
+                            sSelector = oElem[sName].selector || oElem.selector;
+                            var event = oElem[sName];// el nombre de la key
+                            console.log(oElem[sName]);
+                            oDataTable.on(event, $(sSelector), function (e) {
+                                var oRecord = oDataTable.row($(this).parents('tr')).data();
+                                var nId = oRecord.id;
+                                $.publish(oEvent.publish, [nId]);
+                            });
+                        }
+                    });
+                }
             }
         }
 
-        /**
-         * Inicializa el módulo
-         * @param {jquery} $table - jquery wrapper de la tabla
-         * @param {jquery} $searchInput - jquery wrapper del input para usar como buscador
-         * */
-        function init($table, $searchInput) {
-            _startTable($table);
-            _setSearchInput($searchInput);
-        }
+            /**
+             * Vincular input como buscador de la tabla
+             * */
+            function _setSearchInput(sSearchInputId){
+                var $searchInput = $('#'+sSearchInputId);
+                if ($searchInput) {
+                    $searchInput.on('input', function() {
+                        oDataTable.search(this.value).draw();
+                    });
+                }
+            }
 
-        return {
-            oDataTable: oDataTable,
-            init: init,
-            subscribeEvents: subscribeEvents
-        };
+            /**
+             * Inicializa el módulo
+             * @param {string} sTableId - id de la tabla donde funcionará dataTables
+             * @param {string} sSearchInputId - id del input para usar como buscador
+             * */
+            function init(sTableId, sSearchInputId) {
+                _startTable(sTableId);
+                _setSearchInput(sSearchInputId);
+                subscribeEvents();
+            }
 
 
+            return {
+                sModule: sModule,
+                oDataTable: oDataTable,
+                init: init,
+                subscribeEvents: subscribeEvents
+            };
 
-});
+
+    });

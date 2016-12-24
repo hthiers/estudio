@@ -3,17 +3,18 @@
  */
 define([
     'alertify',
+    'app/config/alertify-config',
     'app/utils/eventos'
     ],
-    function(Popups, E){
+    function(Popups, config, E){
 
         /**
-         * Muestra un popup modal de confirmacion de borrar cliente
-         * @param {number} nId - el id del cliente a borrar
-         * @param {string} sNombre - el nombre del cliente a borrar
-         * @returns {boolean} - la opcion elegida (Si-No)
+         * Muestra un popup modal de confirmacion de borrar registro
+         * @param {number} nId - id del registro a borrar
+         * @param {string} sNombre - nombre del registro a borrar
+         * @param {string} sModule - nombre del modulo que llama la modal
          * */
-        function confirmaBorrar(nId, sNombre) {
+        function confirmDelete(nId, sNombre, sModule) {
 
                 Popups.confirm()
                     .setting({
@@ -31,8 +32,7 @@ define([
                         'moveBounded': true,
                         'reverseButtons': true,
                         'onok': function () {
-                            $.publish(E.cliente.confirmaBorrar, [nId]);
-
+                            $.publish(E[sModule]['delete-confirmed'], [nId]);
                         },
                         'oncancel': function () {
                         }
@@ -41,6 +41,6 @@ define([
         }
 
         return {
-            confirmaBorrar: confirmaBorrar
+            confirmDelete: confirmDelete
         }
     });

@@ -19,6 +19,9 @@ requirejs.config({
         gentelella: ['jquery', 'bootstrap'],
         'datatables': {
             deps: ['jquery', 'bootstrap']
+        },
+        'ba-tiny-pubsub': {
+            deps: ['jquery']
         }
 
     }

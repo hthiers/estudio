@@ -2,10 +2,13 @@
  * Created by fethe on 26/11/16.
  */
 
-define(function(){
-    return {
+define(['jquery'], function($){
+    events = {
         cliente: {
-            confirmaBorrar: 'cliente-confirma-borrar'
+            'delete-requested': 'cliente-delete-requested',
+            'delete-confirmed': 'cliente-confirma-borrar',
+            'delete-success': 'cliente-borrar-success'
         }
-    }
+    };
+    $.evt = events;
 });
