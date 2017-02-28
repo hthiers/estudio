@@ -6,7 +6,7 @@
 <![endif]-->
 
 {{-- requirejs
-<script src="{{ url('vendor/require.js') }}" data-main="{{ url('resources/js/app.js') }}"></script> --}}
+<script src="{{ url('vendor/require.js') }}" data-main="{{ url('resources/js/main.js') }}"></script> --}}
 
 
 {{-- Jquery
