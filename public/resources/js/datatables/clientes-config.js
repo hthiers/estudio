@@ -15,7 +15,7 @@ define([
         return {
             processing: false,
             serverSide: false,
-            ajax: '/api/clientes',
+            ajax: 'api/clientes',
             columns:[
                 {
                     name: 'fullname',

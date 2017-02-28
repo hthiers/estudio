@@ -3,14 +3,13 @@
  */
 define([
     'jquery',
-    'controller/main-controller',
-    'app/datatables/clientes-tabla',
+    'app/datatables/datatable-loader',
     'app/utils/eventos'
     ],
-    function($, MainController, ClientesTabla, E){
+    function($, DatatableLoader, E){
 
-        ClientesTabla
-            .init('clientes-tabla','clientes-buscador');
+        DatatableLoader.init();
+        console.log('alalalalalong');
         /**ClientesTabla.subscribeEvents({
             borrarCliente: '.btn-borrar-cliente',
             editarCliente: '.btn-editar-cliente'
@@ -19,7 +18,7 @@ define([
             console.log(nId);
         });
          */
-        $.subscribe($.evt['cliente']['edit-requested'], function(e) {
-            console.log($.evt['cliente']['edit-requested']);
-        })
+        //$.subscribe($.evt['cliente']['edit-requested'], function(e) {
+          //  console.log($.evt['cliente']['edit-requested']);
+        //})
 });
