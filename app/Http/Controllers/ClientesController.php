@@ -21,6 +21,14 @@ class ClientesController extends Controller
         ]);
     }
 
+    public function edit(Request $request) {
+	    return $this->addOrUpdate($request);
+    }
+
+    public function add(Request $request) {
+        return $this->addOrUpdate($request);
+    }
+
     public function addOrUpdate(Request $request)
     {
     	$isUpdate = $request->id ? true : false;
@@ -48,7 +56,7 @@ class ClientesController extends Controller
         $cliente->estado_civil_id = $request->estado_civil > 0? $request->estado_civil: null;
         $cliente->save();
 
-        return redirect('/clientes');
+        return $cliente->apellido . ', '. $cliente->nombre;
     }
     
     public function get($slug)

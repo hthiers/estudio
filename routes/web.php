@@ -21,9 +21,10 @@ Route::group(['middleware' => 'auth'], function()
         'as' => 'agenda', 'uses' => 'AgendaController@index'
     ])->name('agenda');
     Route::get('clientes', 'ClientesController@index')->name('clientes');
+    Route::post('clientes', 'ClientesController@add');
     Route::get('clientes/{id}', 'ClientesController@getAjax')->where('id', '[0-9]+');
     Route::get('clientes/{slug}', 'ClientesController@get')->name('cliente');
-    Route::post('clientes/addOrUpdate', 'ClientesController@addOrUpdate');
+    Route::post('clientes/edit', 'ClientesController@edit');
     Route::post('clientes/borrar', 'ClientesController@delete');
     Route::get('expedientes', 'ExpedientesController@index')->name('expedientes');
     Route::get('api/clientes', function()

@@ -32,7 +32,7 @@ define(['jquery', 'datatables', 'alertify'], function($, datatables, alertify){
                     .success(
                         function(data) {
                             if (data == 1) {
-                                oFila.remove().draw(false);
+                                oFila.onDeleteConfirmed().draw(false);
                                 alertify.success('Borrado ' + sNombre)
                             }
                         })

@@ -128,7 +128,7 @@ table.dataTable thead .no-sort.sorting_asc:after {
 }
 
 /* Boton de nuevo cliente*/
-.btn-cliente-nuevo {
+.btn-clientes-new {
     color: #fff !important;
 }
 /* Para que los buscadores no tapen los menues */

@@ -1,7 +1,5 @@
 @extends('layout.app')
 
-@section('require-main', url( 'resources/js/clientes.js'))
-
 @section('style')
     {{-- Datatables style para bootstrap 3 --}}
     <link rel="stylesheet" type="text/css" href="{{ url('css/dataTables.bootstrap.min.css') }}"/>
@@ -37,7 +35,7 @@
                     <div class="x_title">
                         <div class="title_left row">
                             <ul class="nav navbar-left panel_toolbox col-md-3 col-xs-12">
-                                <li><a class="btn btn-success btn-cliente-nuevo">
+                                <li><a class="btn btn-success btn-clientes-new">
                                     <span class="glyphicon glyphicon-user btn-icon" aria-hidden="true"></span>Nuevo</a>
                                 </li>
                             </ul>
@@ -104,7 +102,7 @@
 
 @section('section-scripts')
     {{-- jQuery Validate --}}
-    {{-- <script src="{{ url('js/jquery.validate.js') }}"></script>
+    {{-- <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.js"></script>
      {{-- Datatables --}}
     {{-- <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.12/r-2.1.0/datatables.min.js"></script>
      {{-- Alertify --}}

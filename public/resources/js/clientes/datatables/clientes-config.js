@@ -15,14 +15,14 @@ define([
         return {
             processing: false,
             serverSide: false,
-            ajax: '/api/clientes',
+            ajax: 'api/clientes',
             columns:[
                 {
                     name: 'fullname',
                     data: 'fullname'
                 },
                 {
-                    name: 'opciones',
+                    name: 'ver-mas',
                     data: 'slug',
                     mRender: function (data, type, full) {
                         return Renderer.botonVerMas(data);
@@ -72,24 +72,24 @@ define([
             },
             columnDefs: [
                 {
-                    targets: ['ver-mas', 'opciones'],
+                    targets: [1, -1],
                     searchable: false,
                     orderable: false
                 },
                 {
-                    targets: ['dni', 'domicilio', 'estado-civil'],
+                    targets: [5, 6, 7],
                     responsivePriority: 10
                 },
                 {
-                    targets: ['fullname', 'ver-mas', -1],
+                    targets: [0, 1, -1],
                     responsivePriority: 1
                 },
                 {
-                    targets: ['celular', 'email'],
+                    targets: [2, 4],
                     responsivePriority: 2
                 },
                 {
-                    targets: 'telefono',
+                    targets: 3,
                     responsivePriority: 3
                 }
             ]

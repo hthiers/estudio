@@ -41,7 +41,7 @@ $.fn.fullCalendar = function(options) {
 				if (!i) {
 					res = singleRes; // record the first method call result
 				}
-				if (options === 'destroy') { // for the destroy method, must remove Calendar object data
+				if (options === 'destroy') { // for the destroy method, must onDeleteConfirmed Calendar object data
 					element.removeData('fullCalendar');
 				}
 			}
@@ -355,7 +355,7 @@ function computeIsLeftRtlScrollbars() { // creates an offscreen test element, th
 		.appendTo('body');
 	var innerEl = el.children();
 	var res = innerEl.offset().left > el.offset().left; // is the inner div shifted to accommodate a left scrollbar?
-	el.remove();
+	el.onDeleteConfirmed();
 	return res;
 }
 
@@ -1876,7 +1876,7 @@ var Popover = Class.extend(ListenerMixin, {
 	},
 
 
-	// Hides the popover, through CSS, but does not remove it from the DOM
+	// Hides the popover, through CSS, but does not onDeleteConfirmed it from the DOM
 	hide: function() {
 		if (!this.isHidden) {
 			this.el.hide();
@@ -1926,7 +1926,7 @@ var Popover = Class.extend(ListenerMixin, {
 		this.hide();
 
 		if (this.el) {
-			this.el.remove();
+			this.el.onDeleteConfirmed();
 			this.el = null;
 		}
 
@@ -2617,7 +2617,7 @@ DragListener.mixin({
 	destroyAutoScroll: function() {
 		this.endAutoScroll(); // kill any animation loop
 
-		// remove the scroll handler if there is a scrollEl
+		// onDeleteConfirmed the scroll handler if there is a scrollEl
 		if (this.isAutoScroll) {
 			this.stopListeningTo(this.scrollEl, 'scroll'); // will probably get removed by unbindHandlers too :(
 		}
@@ -3112,7 +3112,7 @@ var MouseFollower = Class.extend(ListenerMixin, {
 	// Removes the tracking element if it has already been created
 	removeElement: function() {
 		if (this.el) {
-			this.el.remove();
+			this.el.onDeleteConfirmed();
 			this.el = null;
 		}
 	},
@@ -3387,12 +3387,12 @@ var Grid = FC.Grid = Class.extend(ListenerMixin, MouseIgnorerMixin, {
 
 
 	// Removes the grid's container element from the DOM. Undoes any other DOM-related attachments.
-	// DOES NOT remove any content beforehand (doesn't clear events or call unrenderDates), unlike View
+	// DOES NOT onDeleteConfirmed any content beforehand (doesn't clear events or call unrenderDates), unlike View
 	removeElement: function() {
 		this.unbindGlobalHandlers();
 		this.clearDragListeners();
 
-		this.el.remove();
+		this.el.onDeleteConfirmed();
 
 		// NOTE: we don't null-out this.el for the same reasons we don't do it within View::removeElement
 	},
@@ -3699,7 +3699,7 @@ var Grid = FC.Grid = Class.extend(ListenerMixin, MouseIgnorerMixin, {
 
 	/* Fill System (highlight, background events, business hours)
 	--------------------------------------------------------------------------------------------------------------------
-	TODO: remove this system. like we did in TimeGrid
+	TODO: onDeleteConfirmed this system. like we did in TimeGrid
 	*/
 
 
@@ -3716,7 +3716,7 @@ var Grid = FC.Grid = Class.extend(ListenerMixin, MouseIgnorerMixin, {
 		var el = this.elsByFill[type];
 
 		if (el) {
-			el.remove();
+			el.onDeleteConfirmed();
 			delete this.elsByFill[type];
 		}
 	},
@@ -5873,7 +5873,7 @@ var DayGrid = FC.DayGrid = Grid.extend(DayTableMixin, {
 	// Unrenders any visual indication of a mock helper event
 	unrenderHelper: function() {
 		if (this.helperEls) {
-			this.helperEls.remove();
+			this.helperEls.onDeleteConfirmed();
 			this.helperEls = null;
 		}
 	},
@@ -6007,7 +6007,7 @@ DayGrid.mixin({
 		var rowStruct;
 
 		while ((rowStruct = rowStructs.pop())) {
-			rowStruct.tbodyEl.remove();
+			rowStruct.tbodyEl.onDeleteConfirmed();
 		}
 
 		this.rowStructs = null;
@@ -6435,7 +6435,7 @@ DayGrid.mixin({
 		var rowStruct = this.rowStructs[row];
 
 		if (rowStruct.moreEls) {
-			rowStruct.moreEls.remove();
+			rowStruct.moreEls.onDeleteConfirmed();
 			rowStruct.moreEls = null;
 		}
 
@@ -7115,7 +7115,7 @@ var TimeGrid = FC.TimeGrid = Grid.extend(DayTableMixin, {
 
 	unrenderNowIndicator: function() {
 		if (this.nowIndicatorEls) {
-			this.nowIndicatorEls.remove();
+			this.nowIndicatorEls.onDeleteConfirmed();
 			this.nowIndicatorEls = null;
 		}
 	},
@@ -7375,7 +7375,7 @@ TimeGrid.mixin({
 
 		if (segs) {
 			for (i = 0; i < segs.length; i++) {
-				segs[i].el.remove();
+				segs[i].el.onDeleteConfirmed();
 			}
 			this[propName] = null;
 		}
@@ -8093,7 +8093,7 @@ var View = FC.View = Class.extend(EmitterMixin, ListenerMixin, {
 
 		this.unbindGlobalHandlers();
 
-		this.el.remove();
+		this.el.onDeleteConfirmed();
 
 		// NOTE: don't null-out this.el in case the View was destroyed within an API callback.
 		// We don't null-out the View's other jQuery element references upon destroy,
@@ -8993,7 +8993,7 @@ var Scroller = FC.Scroller = Class.extend({
 
 
 	destroy: function() {
-		this.el.remove();
+		this.el.onDeleteConfirmed();
 	},
 
 
@@ -9687,7 +9687,7 @@ function Calendar_constructor(element, overrides) {
 		}
 
 		header.removeElement();
-		content.remove();
+		content.onDeleteConfirmed();
 		element.removeClass('fc fc-ltr fc-rtl fc-unthemed ui-widget');
 
 		element.off('.fc'); // unbind nav link handlers
@@ -9714,7 +9714,7 @@ function Calendar_constructor(element, overrides) {
 	function renderView(viewType, explicitScrollState) {
 		ignoreWindowResize++;
 
-		// if viewType is changing, remove the old view's rendering
+		// if viewType is changing, onDeleteConfirmed the old view's rendering
 		if (currentView && viewType && currentView.type !== viewType) {
 			freezeContentHeight(); // prevent a scroll jump when view element is removed
 			clearView();
@@ -9765,7 +9765,7 @@ function Calendar_constructor(element, overrides) {
 
 
 	// Unrenders the current view and reflects this change in the Header.
-	// Unregsiters the `currentView`, but does not remove from viewByType hash.
+	// Unregsiters the `currentView`, but does not onDeleteConfirmed from viewByType hash.
 	function clearView() {
 		header.deactivateButton(currentView.type);
 		currentView.removeElement();
@@ -10464,7 +10464,7 @@ var momComputableOptions = {
 	// Produces format strings like "h:mma" -> "6:00pm"
 	mediumTimeFormat: function(momOptions) { // can't be called `timeFormat` because collides with option
 		return momOptions.longDateFormat('LT')
-			.replace(/\s*a$/i, 'a'); // convert AM/PM/am/pm to lowercase. remove any spaces beforehand
+			.replace(/\s*a$/i, 'a'); // convert AM/PM/am/pm to lowercase. onDeleteConfirmed any spaces beforehand
 	},
 
 	// Produces format strings like "h(:mm)a" -> "6pm" / "6:30pm"
@@ -10472,7 +10472,7 @@ var momComputableOptions = {
 		return momOptions.longDateFormat('LT')
 			.replace(':mm', '(:mm)')
 			.replace(/(\Wmm)$/, '($1)') // like above, but for foreign locales
-			.replace(/\s*a$/i, 'a'); // convert AM/PM/am/pm to lowercase. remove any spaces beforehand
+			.replace(/\s*a$/i, 'a'); // convert AM/PM/am/pm to lowercase. onDeleteConfirmed any spaces beforehand
 	},
 
 	// Produces format strings like "h(:mm)t" -> "6p" / "6:30p"
@@ -10480,7 +10480,7 @@ var momComputableOptions = {
 		return momOptions.longDateFormat('LT')
 			.replace(':mm', '(:mm)')
 			.replace(/(\Wmm)$/, '($1)') // like above, but for foreign locales
-			.replace(/\s*a$/i, 't'); // convert to AM/PM/am/pm to lowercase one-letter. remove any spaces beforehand
+			.replace(/\s*a$/i, 't'); // convert to AM/PM/am/pm to lowercase one-letter. onDeleteConfirmed any spaces beforehand
 	},
 
 	// Produces format strings like "ha" / "H" -> "6pm" / "18"
@@ -10488,13 +10488,13 @@ var momComputableOptions = {
 		return momOptions.longDateFormat('LT')
 			.replace(':mm', '')
 			.replace(/(\Wmm)$/, '') // like above, but for foreign locales
-			.replace(/\s*a$/i, 'a'); // convert AM/PM/am/pm to lowercase. remove any spaces beforehand
+			.replace(/\s*a$/i, 'a'); // convert AM/PM/am/pm to lowercase. onDeleteConfirmed any spaces beforehand
 	},
 
 	// Produces format strings like "h:mm" -> "6:30" (with no AM/PM)
 	noMeridiemTimeFormat: function(momOptions) {
 		return momOptions.longDateFormat('LT')
-			.replace(/\s*a$/i, ''); // remove trailing AM/PM
+			.replace(/\s*a$/i, ''); // onDeleteConfirmed trailing AM/PM
 	}
 
 };
@@ -10600,7 +10600,7 @@ function Header(calendar) {
 	
 	function removeElement() {
 		if (el) {
-			el.remove();
+			el.onDeleteConfirmed();
 			el = t.el = null;
 		}
 	}
@@ -10702,7 +10702,7 @@ function Header(calendar) {
 										buttonClick(ev);
 
 										// after the click action, if the button becomes the "active" tab, or disabled,
-										// it should never have a hover class, so remove it now.
+										// it should never have a hover class, so onDeleteConfirmed it now.
 										if (
 											button.hasClass(tm + '-state-active') ||
 											button.hasClass(tm + '-state-disabled')
@@ -11191,7 +11191,7 @@ function EventManager() { // assumed to be a calendar
 			cache = [];
 		}
 		else {
-			// remove from persisted source list
+			// onDeleteConfirmed from persisted source list
 			sources = $.grep(sources, function(source) {
 				for (i = 0; i < targetSources.length; i++) {
 					if (source === targetSources[i]) {
@@ -11377,7 +11377,7 @@ function EventManager() { // assumed to be a calendar
 		var eventID;
 		var i;
 
-		if (filter == null) { // null or undefined. remove all events
+		if (filter == null) { // null or undefined. onDeleteConfirmed all events
 			filter = function() { return true; }; // will always match
 		}
 		else if (!$.isFunction(filter)) { // an event ID
@@ -13215,7 +13215,7 @@ var ListView = View.extend({
 	},
 
 	unrenderSkeleton: function() {
-		this.scroller.destroy(); // will remove the Grid too
+		this.scroller.destroy(); // will onDeleteConfirmed the Grid too
 	},
 
 	setHeight: function(totalHeight, isAuto) {

@@ -15,8 +15,7 @@
 
     {{-- Require js --}}
     <script src="{{ url('vendor/require.js') }}"
-            data-main="@yield('require-main', url('resources/js/main.js'))"></script>
-
+            data-main="{{ url('resources/js/app.js') }}"></script>
 
     <title>@yield('title') - {{ Config::get('app.name') }}</title>
 

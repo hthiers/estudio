@@ -46,7 +46,7 @@ define([
                         if (data == 1) {
                             oDataTable.rows(function(idx, data, node){
                                 return data.id === nId;
-                            }).remove().draw(false);
+                            }).onDeleteConfirmed().draw(false);
                             $.publish($.evt[sModule]['delete-success']);
                         }
                     })

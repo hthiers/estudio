@@ -12,3 +12,4 @@ define(['jquery'], function($){
     };
     $.evt = events;
 });
+

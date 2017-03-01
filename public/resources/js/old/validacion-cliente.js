@@ -50,6 +50,11 @@ $(document).ready(function(){
             domicilio: {
                 maxlength: 255
             }
+        },
+        submitHandler: function(form) {
+            // do other things for a valid form
+            form.submit();
+            console.log('form-enviado');
         }
     });
     var addOrUpdateForm = document.getElementById('agregar-cliente');

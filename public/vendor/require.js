@@ -1186,7 +1186,7 @@ var requirejs, require, define;
                     cb(evt);
                 });
                 if (name === 'error') {
-                    //Now that the error handler was triggered, remove
+                    //Now that the error handler was triggered, onDeleteConfirmed
                     //the listeners, since this broken Module instance
                     //can stay around for a while in the registry.
                     delete this.events[name];
@@ -1356,7 +1356,7 @@ var requirejs, require, define;
 
                         //Save pointer to main module ID for pkg name.
                         //Remove leading dot in main, so main paths are normalized,
-                        //and remove any trailing .js, since different package
+                        //and onDeleteConfirmed any trailing .js, since different package
                         //envs have different conventions: some use a module name,
                         //some use a file name.
                         config.pkgs[name] = pkgObj.name + '/' + (pkgObj.main || 'main')

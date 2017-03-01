@@ -81,7 +81,7 @@ $.extend( $.fn, {
 						if ( validator.submitButton ) {
 
 							// And clean up afterwards; thanks to no-block-scope, hidden can be referenced
-							hidden.remove();
+							hidden.onDeleteConfirmed();
 						}
 						if ( result !== undefined ) {
 							return result;
@@ -158,7 +158,7 @@ $.extend( $.fn, {
 					settings.messages[ element.name ] = $.extend( settings.messages[ element.name ], argument.messages );
 				}
 				break;
-			case "remove":
+			case "onDeleteConfirmed":
 				if ( !argument ) {
 					delete staticRules[ element.name ];
 					return existingRules;
@@ -276,7 +276,7 @@ $.extend( $.validator, {
 		onfocusin: function( element ) {
 			this.lastActive = element;
 
-			// Hide error label and remove error class on focus if enabled
+			// Hide error label and onDeleteConfirmed error class on focus if enabled
 			if ( this.settings.focusCleanup ) {
 				if ( this.settings.unhighlight ) {
 					this.settings.unhighlight.call( this, element, this.settings.errorClass, this.settings.validClass );

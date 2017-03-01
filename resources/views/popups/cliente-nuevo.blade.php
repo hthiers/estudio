@@ -1,5 +1,5 @@
 {{-- Formulario agregar cliente Modal --}}
-            <form id="agregar-cliente" action="clientes/addOrUpdate" method="POST" class="form-horizontal form-label-left" novalidate>
+            <form id="agregar-cliente" {{-- action="clientes/addOrUpdate" method="POST" --}} class="form-horizontal form-label-left" novalidate>
 <div class="modal fade agregar-cliente" id="cliente-modal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -110,7 +110,7 @@
                 <div class="form-group">
                     <div class="col-xs-12 col-sm-9">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" id="cliente-submit" class="btn btn-primary" >Guardar</button>
+                        <button type="button" id="clientes-new-submit" class="btn btn-clientes-new-submit btn-primary" >Guardar</button>
                     </div>
                 </div>
             </div>
