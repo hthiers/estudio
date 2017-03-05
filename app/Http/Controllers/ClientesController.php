@@ -56,7 +56,7 @@ class ClientesController extends Controller
         $cliente->estado_civil_id = $request->estado_civil > 0? $request->estado_civil: null;
         $cliente->save();
 
-        return $cliente->apellido . ', '. $cliente->nombre;
+        return $cliente;
     }
     
     public function get($slug)

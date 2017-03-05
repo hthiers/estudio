@@ -35,7 +35,7 @@ define([
             $.subscribe('clientes-service-add-success', function(fullname){ eventHandler.onServiceAddSuccess(fullname) });
             $.subscribe('clientes-edit-requested', function(e, id, fullname){ eventHandler.onEditRequested(id, fullname) });
             $.subscribe('clientes-service-edit-success', function(e, fullname){ eventHandler.onServiceEditSuccess(fullname) });
-            $.subscribe('clientes-service-add-sucess', function(e){ eventHandler.onServiceAddSuccess() });
+            $.subscribe('clientes-service-add-sucess', function(e, addedCliente){ eventHandler.onServiceAddSuccess(addedCliente) });
 
         },
 
@@ -50,13 +50,14 @@ define([
             Helpers.cleanForm($formNewCliente);
         },
 
+        /* ADD CLIENTE EVENTS */
         onClickClientesNew: function(e) {
             $tituloFormNewCliente.html('Ingresar Nuevo Cliente');
             Helpers.cleanForm($formNewCliente);
             $modalNewCliente.modal('show');
         },
-
         onNewRequested: function (form) {
+            // TODO hacerle trim a todos los campos del form antes de enviarlo
             var $form = $(form);
             if ($form.valid()) {
                 var cliente = Helpers.serializeObject.apply($form);
@@ -67,21 +68,23 @@ define([
                 }
             };
         },
-
-        onServiceAddSuccess: function (fullname) {
-            Renderer.successNotification('Se ha agregado a '+ fullname);
+        onServiceAddSuccess: function (addedCliente) {
+            console.log(addedCliente);
+            this.dataTable.ajax.reload(function() {
+                Renderer.successNotification('Se ha agregado a '+ addedCliente.fullname);
+            }, false /* Se mantiene en la pagina donde está */);
             $modalNewCliente.modal('hide');
             Helpers.cleanForm($formNewCliente);
         },
+        // end ADD CLIENTE
+
 
         onServiceEditSuccess: function (fullname) {
             this.dataTable.ajax.reload(function() {
                 Renderer.successNotification('Se han modificado los datos de '+ fullname);
-
-            }, false /* Mantiene la posicion en la pagina */);
+            }, false /* Se mantiene en la pagina donde está */);
             $modalNewCliente.modal('hide');
             Helpers.cleanForm($formNewCliente);
-
         },
 
         onDeleteRequested: function(nId, sNombre) {
@@ -95,7 +98,7 @@ define([
         onServiceDeleteSuccess: function(fullname) {
             // TODO solo eliminar la fila borrada
             this.dataTable.ajax.reload(function() {
-                Renderer.successNotification('Se ha borrado a '+ fullname)
+                Renderer.successNotification('Se ha borrado a '+ fullname);
             }, false /* Mantiene la posicion en la pagina */);
         },
 

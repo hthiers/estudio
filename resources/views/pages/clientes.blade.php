@@ -68,7 +68,7 @@
                         @endif
 
                         <div class="col-md-12 col-sm-12 col-xs-12 top_search">
-                            <table id="clientes-tabla" class="table table-striped dt-responsive nowrap" cellspacing="0"
+                            <table id="clientes-tabla" class="table table-responsive table-striped dt-responsive nowrap" cellspacing="0"
                                    width="100%">
                                 <thead>
                                 <tr>

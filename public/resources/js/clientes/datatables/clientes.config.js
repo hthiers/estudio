@@ -8,7 +8,7 @@ define([
     function(Renderer){
         'use strict';
 
-        var LANG_URL = './resources/js/datatables/spanish.lang';
+        var LANG_URL = '/resources/js/lib/datatables/spanish.lang';
 
         var DOM = '<"toolbar">tr<"tabla-pie"p>';
 
@@ -19,7 +19,9 @@ define([
             columns:[
                 {
                     name: 'fullname',
-                    data: 'fullname'
+                    data: function (data, type, full) {
+                        return data.apellido + ', ' + data.nombre;
+                    }
                 },
                 {
                     name: 'ver-mas',
@@ -65,11 +67,9 @@ define([
             language: {
                 url: LANG_URL
             },
-            responsive: {
-                details: {
-                    type: 'column'
-                }
-            },
+            /*responsive: {
+                details: false
+            },*/
             columnDefs: [
                 {
                     targets: [1, -1],
@@ -92,6 +92,10 @@ define([
                     targets: 3,
                     responsivePriority: 3
                 }
-            ]
+            ],
+            // scrollY:        '50vh',
+            // scrollCollapse: true,
+            // paging:         false
+
         };
 });

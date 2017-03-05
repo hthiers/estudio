@@ -18,3 +18,4 @@ elixir(function(mix) {
         'app.scss'
     ], 'public/css/app.css');
 });
+

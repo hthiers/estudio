@@ -9,7 +9,7 @@
         <!-- menu profile quick info -->
         <div class="profile">
             <div class="profile_pic">
-                <img src="{{ url('img/saul.jpg') }}" alt="..." class="img-circle profile_img">
+                <img src="{{ url('img/default-avatar.png') }}" alt="..." class="img-circle profile_img">
             </div>
             <div class="profile_info">
                 <span>Bienvenido,</span>

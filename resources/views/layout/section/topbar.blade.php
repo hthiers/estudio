@@ -13,9 +13,10 @@
                     <li><a href="{{ url('/login') }}">Login</a></li>
                     <li><a href="{{ url('/register') }}">Register</a></li>
                 @else
+
                 <li class="pull-right">
                     <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                        <img src="{{ url('img/saul.jpg') }}" alt="">{{ Auth::user()->username }}
+                        <img src="{{ url('img/default-avatar.png') }}" alt="">{{ Auth::user()->username }}
                         <i class="fa fa-angle-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -44,84 +45,86 @@
                         </li>
                     </ul>
                 </li>
+                    {{--
+                        <li role="presentation" class="dropdown">
+                            <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                                <i class="fa fa-clock-o fa-fw"></i>
+                                <span class="badge bg-red">1</span>
+                            </a>
 
-                <li role="presentation" class="dropdown">
-                    <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
-                        <i class="fa fa-clock-o fa-fw"></i>
-                        <span class="badge bg-red">1</span>
-                    </a>
-                    <ul id="eventos" class="dropdown-menu list-unstyled msg_list" role="menu">
-                        <li>
-                            <a>
-                                <span><span>Reunion con Nacho Garcia</span>
-                          <span class="time">Faltan 30 minutos</span>
-                        </span>
-                                <span class="message">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. At dolorem expedita in laudantium nemo numquam similique?
-                        </span>
-                            </a>
+                            <ul id="eventos" class="dropdown-menu list-unstyled msg_list" role="menu">
+                                <li>
+                                    <a>
+                                        <span><span>Reunion con Nacho Garcia</span>
+                                  <span class="time">Faltan 30 minutos</span>
+                                </span>
+                                        <span class="message">
+                                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. At dolorem expedita in laudantium nemo numquam similique?
+                                </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <div class="text-center">
+                                        <a>
+                                            <strong>Ver todas las alertas</strong>
+                                            <i class="fa fa-angle-right fa-fw"></i>
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
                         </li>
-                        <li>
-                            <div class="text-center">
-                                <a>
-                                    <strong>Ver todas las alertas</strong>
-                                    <i class="fa fa-angle-right fa-fw"></i>
-                                </a>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
 
-                <li role="presentation" class="dropdown">
-                    <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
-                        <i class="fa fa-envelope-o fw"></i>
-                        <span class="badge bg-green">3</span>
-                    </a>
-                    <ul id="mensajes" class="dropdown-menu list-unstyled msg_list" role="menu">
-                        <li>
-                            <a>
-                                <span class="image"><img src="{{ url('img/nacho.jpg') }}" alt="Profile Image" /></span>
-                                <span>
-                          <span>Nacho Garcia</span>
-                          <span class="time">hace 3 minutos</span>
-                        </span>
-                                <span class="message">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. At dolorem expedita in laudantium nemo numquam similique?
-                        </span>
+                        <li role="presentation" class="dropdown">
+                            <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                                <i class="fa fa-envelope-o fw"></i>
+                                <span class="badge bg-green">3</span>
                             </a>
-                        </li>
-                        <li>
-                            <a>
-                                <span class="image"><img src="{{ url('img/lionel.jpg') }}" alt="Profile Image" /></span>
-                                <span>
-                          <span>Lionel Hutz</span>
-                          <span class="time">hace 2 horas</span>
-                        </span>
-                                <span class="message">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, ipsa!
-                        </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a>
-                                <span class="image"><img src="{{ url('img/chuck.jpg') }}" alt="Profile Image" /></span>
-                                <span>
-                          <span>Charles McGill</span>
-                          <span class="time">hace 3 días</span>
-                        </span>
-                                <span class="message">
-                          No te olvides de dejar el celular en la puerta cuando vengas a casa.
-                        </span>
-                            </a>
-                        </li>
-                        <li>
-                            <div class="text-center">
-                                <a>
-                                    <strong>Ver todos los mensajes</strong>
-                                    <i class="fa fa-angle-right fa-fw"></i>
-                                </a>
-                            </div>
-                        </li>
+                            <ul id="mensajes" class="dropdown-menu list-unstyled msg_list" role="menu">
+                                <li>
+                                    <a>
+                                        <span class="image"><img src="{{ url('img/nacho.jpg') }}" alt="Profile Image" /></span>
+                                        <span>
+                                  <span>Nacho Garcia</span>
+                                  <span class="time">hace 3 minutos</span>
+                                </span>
+                                        <span class="message">
+                                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. At dolorem expedita in laudantium nemo numquam similique?
+                                </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a>
+                                        <span class="image"><img src="{{ url('img/lionel.jpg') }}" alt="Profile Image" /></span>
+                                        <span>
+                                  <span>Lionel Hutz</span>
+                                  <span class="time">hace 2 horas</span>
+                                </span>
+                                        <span class="message">
+                                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, ipsa!
+                                </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a>
+                                        <span class="image"><img src="{{ url('img/chuck.jpg') }}" alt="Profile Image" /></span>
+                                        <span>
+                                  <span>Charles McGill</span>
+                                  <span class="time">hace 3 días</span>
+                                </span>
+                                        <span class="message">
+                                  No te olvides de dejar el celular en la puerta cuando vengas a casa.
+                                </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <div class="text-center">
+                                        <a>
+                                            <strong>Ver todos los mensajes</strong>
+                                            <i class="fa fa-angle-right fa-fw"></i>
+                                        </a>
+                                    </div>
+                                </li>
+                            --}}
                     </ul>
                 </li>
                 @endif

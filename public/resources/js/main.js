@@ -18,6 +18,6 @@ define([
         headers: {'X-CSRF-Token': $('meta[name=_token]').attr('content')}
     });
     // TODO poner un controller default por si falla
-    requirejs(['app/'+ section + '/controller/' + section + '-controller']);
+    requirejs(['app/'+ section + '/controller/' + section + '.controller']);
 
 });

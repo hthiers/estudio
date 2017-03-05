@@ -3,9 +3,9 @@
  */
 define([
         'jquery',
-        'jquery.validate'
+
     ],
-    function($, undefined){
+    function($){
 
 
         return [{
