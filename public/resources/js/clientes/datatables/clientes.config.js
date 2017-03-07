@@ -67,9 +67,9 @@ define([
             language: {
                 url: LANG_URL
             },
-            /*responsive: {
-                details: false
-            },*/
+            responsive: {
+                details: true
+            },
             columnDefs: [
                 {
                     targets: [1, -1],
@@ -93,9 +93,9 @@ define([
                     responsivePriority: 3
                 }
             ],
-            // scrollY:        '50vh',
-            // scrollCollapse: true,
-            // paging:         false
+            scrollY:        '50vh',
+            scrollCollapse: true,
+            paging:         false
 
         };
 });

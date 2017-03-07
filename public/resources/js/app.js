@@ -5,15 +5,14 @@ requirejs.config({
     baseUrl: 'vendor',
     paths: {
         'app': '../resources/js',
-        'jquery-base': 'jquery.min',
-        'jquery': '../resources/js/lib/jquery.extension',
-        'bootstrap': 'bootstrap.min',
+        'jquery': 'https://code.jquery.com/jquery-2.2.4.min',
+        'bootstrap': 'bootstrap',
         'gentelella': 'my-gentelella',
-        //'datatables': 'datatables',
-        'datatables.net': 'jquery.dataTables',
-        //'datatables.net-bs' : 'dataTables.bootstrap.min',
-        //'datatables.net-responsive': 'datatables.net-responsive',
-       // 'dataTables.responsive.min': 'dataTables.responsive.min',
+        'datatables': 'datatables',
+        'datatables.net': '//cdn.datatables.net/1.10.13/js/jquery.dataTables.min',
+        'datatables.net-bs' : 'dataTables.bootstrap.min',
+        'datatables.net-responsive': 'datatables.net-responsive',
+        'dataTables.responsive.min': 'dataTables.responsive.min',
         'ba-tiny-pubsub': 'ba-tiny-pubsub.min',
         'alertify': 'alertify.min',
         'jquery.validate': 'jquery.validate',
@@ -22,26 +21,6 @@ requirejs.config({
     shim: {
         'gentelella': ['bootstrap'],
         'bootstrap': ['jquery'],
-        'jquery': {
-            'deps': ['jquery-base'],
-            'exports': '$'
-        },
-        'datatables.net': {
-           'deps': ['jquery', 'bootstrap'],
-           'exports': 'datatables.net'
-        },
-        /*'datatables.net-bs': {
-            'deps': ['datatables.net'],
-            'exports': 'datatables.net-bs'
-        },
-        'datatables.net-responsive': {
-            'deps': ['datatables.net-bs'],
-            'exports': 'datatables.net-responsive'
-        },
-        'dataTables.responsive.min': {
-            'deps': ['datatables.net-responsive'],
-            'exports': 'dataTables.responsive'
-        },*/
         'ba-tiny-pubsub': {
             'deps': ['jquery']
         }

@@ -6,10 +6,10 @@ define([
         'app/core/factories/ajax-service.factory',
         'helpers',
        //'datatables',
-        //'dataTables.responsive.min',
+        'dataTables.responsive.min',
         'datatables.net',
-       // 'datatables.net-bs',
-        //'datatables.net-responsive'
+        'datatables.net-bs',
+        'datatables.net-responsive'
     ],
     function($, AjaxServiceFactory, Helpers, Datatable) {
 
